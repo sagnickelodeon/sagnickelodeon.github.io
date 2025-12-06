@@ -926,5 +926,28 @@
         <p>Check out my <a href="https://letterboxd.com/sagnickelodeon/" style="color: #00d735; text-decoration: none;">Letterboxd profile</a> for complete movie reviews and ratings</p>
         <p style="margin-top: 1rem;">&copy; 2025 Your Name. All rights reserved.</p>
     </footer>
+
+    <script>
+        // Dark mode functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+    
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        body.classList.add(currentTheme + '-mode');
+    
+        themeToggle.addEventListener('click', () => {
+            if (body.classList.contains('light-mode')) {
+                body.classList.remove('light-mode');
+                body.classList.add('dark-mode');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                body.classList.remove('dark-mode');
+                body.classList.add('light-mode');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    </script>
+
 </body>
 </html>
