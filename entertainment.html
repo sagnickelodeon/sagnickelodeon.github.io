@@ -377,6 +377,163 @@
                 padding: 2rem 1rem;
             }
         }
+
+        /* Dark Mode Variables - Add to existing :root and dark-mode sections */
+        :root {
+            --hero-bg: linear-gradient(135deg, #1a1a1a 0%, #434343 100%);
+            --currently-watching-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --footer-bg: #1a1a1a;
+        }
+        
+        body.dark-mode {
+            --hero-bg: linear-gradient(135deg, #0a0a0a 0%, #2a2a2a 100%);
+            --currently-watching-bg: linear-gradient(135deg, #5558d8 0%, #6d4a8e 100%);
+            --footer-bg: #0a0a0a;
+        }
+        
+        /* Update existing element styles to use variables */
+        body {
+            background-color: var(--bg-secondary);
+        }
+        
+        .hero {
+            background: var(--hero-bg);
+        }
+        
+        section h2 {
+            color: var(--text-primary);
+        }
+        
+        .section-description {
+            color: var(--text-secondary);
+        }
+        
+        .media-year {
+            color: var(--text-secondary);
+        }
+        
+        .media-description {
+            color: var(--text-secondary);
+        }
+        
+        .tag {
+            background: var(--border-color);
+            color: var(--text-primary);
+        }
+        
+        .tag.genre {
+            background: var(--border-color);
+            color: var(--accent-color);
+        }
+        
+        .stat-label {
+            color: var(--text-secondary);
+        }
+        
+        .currently-watching {
+            background: var(--currently-watching-bg);
+        }
+        
+        .top-picks {
+            background: var(--card-bg);
+            box-shadow: 0 5px 20px var(--card-shadow);
+        }
+        
+        .pick-title {
+            color: var(--text-primary);
+        }
+        
+        footer {
+            background: var(--footer-bg);
+        }
+
+        /* Blog Section Styles */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .blog-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px var(--card-shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px var(--card-shadow);
+        }
+        
+        .blog-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .blog-category {
+            padding: 0.4rem 1rem;
+            background: var(--accent-gradient);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        .blog-date {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        .blog-title {
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+        
+        .blog-excerpt {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+        
+        .read-more {
+            display: inline-block;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            transition: transform 0.3s;
+        }
+        
+        .read-more:hover {
+            transform: translateX(5px);
+        }
+        
+        .blog-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
     </style>
 </head>
 <body>
@@ -388,6 +545,7 @@
             <li><a href="#movies">Movies</a></li>
             <li><a href="#anime">Anime</a></li>
             <li><a href="#shows">TV Shows</a></li>
+            <li><a href="#blog">My thoughts</a></li>
         </ul>
     </nav>
 
@@ -395,14 +553,14 @@
     <div class="hero">
         <h1>🎬 My Entertainment Hub</h1>
         <p>Exploring the world of cinema, anime, and television</p>
-        <a href="https://letterboxd.com/yourusername/" target="_blank" class="letterboxd-link">
+        <a href="https://letterboxd.com/sagnickelodeon/" target="_blank" class="letterboxd-link">
             📽️ Follow me on Letterboxd
         </a>
     </div>
 
     <div class="container">
         <!-- Stats Section -->
-        <div class="stats-grid">
+        <!-- <div class="stats-grid">
             <div class="stat-card">
                 <div class="stat-number">247</div>
                 <div class="stat-label">Movies Watched</div>
@@ -419,7 +577,7 @@
                 <div class="stat-number">4.2</div>
                 <div class="stat-label">Avg Rating</div>
             </div>
-        </div>
+        </div> -->
 
         <!-- Currently Watching -->
         <div class="currently-watching">
@@ -448,6 +606,91 @@
                 </div>
             </div>
         </div>
+
+        <!-- Blog Section -->
+        <section id="blog">
+            <h2><span class="section-emoji">✍️</span> Movie Thoughts & Reviews</h2>
+            <p class="section-description">My personal takes on films that made an impact</p>
+            
+            <div class="blog-grid">
+                <!-- Blog Post 1 -->
+                <article class="blog-card">
+                    <div class="blog-header">
+                        <div class="blog-category">Movie Review</div>
+                        <div class="blog-date">December 5, 2025</div>
+                    </div>
+                    <h3 class="blog-title">Why 'Oppenheimer' is Nolan's Most Important Film</h3>
+                    <p class="blog-excerpt">
+                        Christopher Nolan's biographical thriller isn't just a technical masterpiece—it's a haunting meditation 
+                        on the moral weight of creation and destruction. The way Nolan interweaves the personal and political...
+                    </p>
+                    <a href="blog/oppenheimer-review.html" class="read-more">Read More →</a>
+                    <div class="blog-tags">
+                        <span class="tag">Biography</span>
+                        <span class="tag">Drama</span>
+                        <span class="tag">Christopher Nolan</span>
+                    </div>
+                </article>
+        
+                <!-- Blog Post 2 -->
+                <article class="blog-card">
+                    <div class="blog-header">
+                        <div class="blog-category">Analysis</div>
+                        <div class="blog-date">November 28, 2025</div>
+                    </div>
+                    <h3 class="blog-title">The Symbolism Behind 'Everything Everywhere All at Once'</h3>
+                    <p class="blog-excerpt">
+                        This multiverse madness is more than just visual chaos. At its core, it's about generational trauma, 
+                        immigrant experience, and finding meaning in a chaotic world. Let me break down the hidden layers...
+                    </p>
+                    <a href="blog/eeaao-analysis.html" class="read-more">Read More →</a>
+                    <div class="blog-tags">
+                        <span class="tag">Analysis</span>
+                        <span class="tag">Sci-Fi</span>
+                        <span class="tag">Oscar Winner</span>
+                    </div>
+                </article>
+        
+                <!-- Blog Post 3 -->
+                <article class="blog-card">
+                    <div class="blog-header">
+                        <div class="blog-category">Anime Review</div>
+                        <div class="blog-date">November 20, 2025</div>
+                    </div>
+                    <h3 class="blog-title">Attack on Titan's Finale: A Retrospective</h3>
+                    <p class="blog-excerpt">
+                        After a decade-long journey, Attack on Titan concluded its anime run. Whether you loved or hated 
+                        the ending, there's no denying the impact this series had on the medium. Here's my take on why...
+                    </p>
+                    <a href="blog/aot-finale.html" class="read-more">Read More →</a>
+                    <div class="blog-tags">
+                        <span class="tag">Anime</span>
+                        <span class="tag">Finale</span>
+                        <span class="tag">Epic</span>
+                    </div>
+                </article>
+        
+                <!-- Blog Post 4 -->
+                <article class="blog-card">
+                    <div class="blog-header">
+                        <div class="blog-category">Top List</div>
+                        <div class="blog-date">November 15, 2025</div>
+                    </div>
+                    <h3 class="blog-title">10 Underrated Films You Need to Watch</h3>
+                    <p class="blog-excerpt">
+                        Tired of the same recommendations? Here are ten incredible films that flew under the radar but 
+                        deserve your attention. From indie gems to foreign masterpieces, these hidden treasures will...
+                    </p>
+                    <a href="blog/underrated-films.html" class="read-more">Read More →</a>
+                    <div class="blog-tags">
+                        <span class="tag">List</span>
+                        <span class="tag">Recommendations</span>
+                        <span class="tag">Hidden Gems</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
 
         <!-- All-Time Favorites -->
         <div class="top-picks">
@@ -680,7 +923,7 @@
 
     <!-- Footer -->
     <footer>
-        <p>Check out my <a href="https://letterboxd.com/yourusername/" style="color: #00d735; text-decoration: none;">Letterboxd profile</a> for complete movie reviews and ratings</p>
+        <p>Check out my <a href="https://letterboxd.com/sagnickelodeon/" style="color: #00d735; text-decoration: none;">Letterboxd profile</a> for complete movie reviews and ratings</p>
         <p style="margin-top: 1rem;">&copy; 2025 Your Name. All rights reserved.</p>
     </footer>
 </body>
