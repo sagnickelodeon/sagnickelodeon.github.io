@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog • Your Name</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        /* ========== THEME TOKENS ========== */
+        :root {
+            --bg-primary: #f5f5f5;
+            --bg-secondary: #ffffff;
+            --text-primary: #222222;
+            --text-secondary: #555555;
+            --accent-color: #8b8fff;
+            --border-color: #e0e0e0;
+            --card-bg: #ffffff;
+            --card-shadow: rgba(15, 23, 42, 0.08);
+
+            --hero-bg: linear-gradient(135deg, #1a1a1a 0%, #434343 100%);
+            --footer-bg: #1a1a1a;
+        }
+
+        body.dark-mode {
+            --bg-primary: #000000;
+            --bg-secondary: #121212;
+            --text-primary: #e5e5e5;
+            --text-secondary: #a0a0a0;
+            --accent-color: #8b8fff;
+            --border-color: rgba(255, 255, 255, 0.06);
+            --card-bg: rgba(18, 18, 18, 0.8);
+            --card-shadow: rgba(0, 0, 0, 0.5);
+
+            --hero-bg: linear-gradient(135deg, #0a0a0a 0%, #2a2a2a 100%);
+            --footer-bg: #050505;
+        }
+
+        /* Optional: respect system preference initially [web:3] */
+        @media (prefers-color-scheme: dark) {
+            body:not(.light-mode) {
+                background-color: #000;
+                color-scheme: dark;
+            }
+        }
+
+        /* ========== GLOBAL ========== */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background:
+                radial-gradient(at 27% 37%, rgba(129, 140, 248, 0.25) 0, transparent 55%),
+                radial-gradient(at 97% 21%, rgba(52, 211, 153, 0.18) 0, transparent 55%),
+                radial-gradient(at 52% 99%, rgba(248, 113, 113, 0.22) 0, transparent 55%),
+                radial-gradient(at 10% 29%, rgba(129, 140, 248, 0.22) 0, transparent 55%),
+                radial-gradient(at 97% 96%, rgba(234, 179, 8, 0.2) 0, transparent 55%),
+                radial-gradient(at 33% 50%, rgba(96, 165, 250, 0.26) 0, transparent 55%),
+                radial-gradient(at 79% 53%, rgba(244, 114, 182, 0.22) 0, transparent 55%);
+            background-color: var(--bg-primary);
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .page-shell {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 1.5rem 1.5rem 3rem;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        section {
+            margin-bottom: 3rem;
+        }
+
+        /* ========== HEADER / NAV ========== */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 2.5rem;
+        }
+
+        .site-title {
+            font-weight: 700;
+            font-size: 1.4rem;
+            letter-spacing: 0.06em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.25rem;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+        }
+
+        .nav-links a.active {
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        /* Theme toggle (matches index/entertainment style using body.dark-mode) [web:7] */
+        .theme-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.35rem 0.75rem;
+            border-radius: 999px;
+            border: 1px solid var(--border-color);
+            background-color: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            cursor: pointer;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        body.dark-mode .theme-toggle {
+            background-color: rgba(15, 23, 42, 0.7);
+            color: var(--text-secondary);
+        }
+
+        .theme-toggle span.icon {
+            font-size: 1rem;
+        }
+
+        /* ========== HERO / INTRO ========== */
+        .hero {
+            background: var(--hero-bg);
+            color: #f9fafb;
+            padding: 2.5rem 2rem;
+            border-radius: 24px;
+            box-shadow: 0 18px 45px rgba(15, 23, 42, 0.35);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: -40%;
+            background:
+                radial-gradient(circle at 0 0, rgba(129, 140, 248, 0.28) 0, transparent 60%),
+                radial-gradient(circle at 100% 0, rgba(244, 114, 182, 0.18) 0, transparent 60%);
+            opacity: 0.6;
+        }
+
+        .hero-inner {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-eyebrow {
+            font-size: 0.8rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            opacity: 0.8;
+            margin-bottom: 0.75rem;
+        }
+
+        .hero-title {
+            font-size: clamp(1.8rem, 3vw, 2.2rem);
+            margin: 0 0 0.75rem;
+        }
+
+        .hero-subtitle {
+            max-width: 40rem;
+            font-size: 0.98rem;
+            opacity: 0.9;
+        }
+
+        /* ========== LAYOUT: MAIN + SIDEBAR ========== */
+        .layout {
+            display: grid;
+            grid-template-columns: minmax(0, 2.5fr) minmax(0, 1fr);
+            gap: 2.5rem;
+            align-items: flex-start;
+        }
+
+        @media (max-width: 900px) {
+            .layout {
+                grid-template-columns: minmax(0, 1fr);
+            }
+        }
+
+        /* ========== POST LIST ========== */
+        .section-header {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .section-header h2 {
+            font-size: 1.1rem;
+            margin: 0;
+        }
+
+        .section-header p {
+            margin: 0;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .post-card {
+            background: var(--card-bg);
+            border-radius: 18px;
+            padding: 1.4rem 1.4rem 1.25rem;
+            box-shadow: 0 10px 30px var(--card-shadow);
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+        }
+
+        .post-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px var(--card-shadow);
+            border-color: rgba(139, 143, 255, 0.5);
+        }
+
+        .post-meta {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: var(--text-secondary);
+        }
+
+        .post-title {
+            font-size: 1.02rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .post-excerpt {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        .post-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .tag-pill {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.15rem 0.55rem;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            background: rgba(139, 143, 255, 0.12);
+            color: var(--accent-color);
+        }
+
+        /* ========== SIDEBAR ========== */
+        .sidebar-card {
+            background: var(--card-bg);
+            border-radius: 18px;
+            padding: 1.4rem 1.25rem;
+            box-shadow: 0 10px 30px var(--card-shadow);
+            border: 1px solid var(--border-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .sidebar-card h3 {
+            margin: 0 0 0.85rem;
+            font-size: 0.98rem;
+        }
+
+        .sidebar-card p {
+            margin: 0 0 0.75rem;
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+        }
+
+        .category-list,
+        .mini-posts {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .category-list li + li,
+        .mini-posts li + li {
+            margin-top: 0.45rem;
+        }
+
+        .category-list a {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+        }
+
+        .mini-posts a {
+            display: block;
+            font-size: 0.86rem;
+        }
+
+        .mini-meta {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        /* ========== FOOTER ========== */
+        footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+        }
+
+        footer a {
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+<div class="page-shell">
+
+    <!-- HEADER -->
+    <header>
+        <div class="site-title">YourName.blog</div>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="entertainment.html">Entertainment</a>
+            <a href="blog.html" class="active">Blog</a>
+            <button class="theme-toggle" type="button" id="themeToggle">
+                <span class="icon" aria-hidden="true">🌗</span>
+                <span class="label">Toggle theme</span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-inner">
+            <div class="hero-eyebrow">Blog / Essays / Notes</div>
+            <h1 class="hero-title">Long-form thoughts on film, TV, and stories.</h1>
+            <p class="hero-subtitle">
+                Deep dives, reviews, and random obsessions from the same brain that built the entertainment page.
+                Spoilers are always labeled, hot takes are always honest.
+            </p>
+        </div>
+    </section>
+
+    <!-- MAIN LAYOUT -->
+    <section>
+        <div class="layout">
+
+            <!-- MAIN POSTS -->
+            <main>
+                <div class="section-header">
+                    <h2>Latest posts</h2>
+                    <p>New writing whenever something refuses to leave the mind.</p>
+                </div>
+
+                <div class="posts-grid">
+                    <article class="post-card">
+                        <div class="post-meta">Essay • December 2025</div>
+                        <h3 class="post-title">Why small, quiet endings hit the hardest</h3>
+                        <p class="post-excerpt">
+                            Blockbusters chase scale; the scenes that linger are often just two people in a room
+                            finally telling the truth.
+                        </p>
+                        <div class="post-footer">
+                            <span class="tag-pill">Story craft</span>
+                            <span>7 min read</span>
+                        </div>
+                    </article>
+
+                    <article class="post-card">
+                        <div class="post-meta">Review • December 2025</div>
+                        <h3 class="post-title">The show that fixed my “one more episode” problem</h3>
+                        <p class="post-excerpt">
+                            Not every series wants you to binge it. Some are built as weekly rituals—and they feel
+                            better that way.
+                        </p>
+                        <div class="post-footer">
+                            <span class="tag-pill">TV</span>
+                            <span>5 min read</span>
+                        </div>
+                    </article>
+
+                    <article class="post-card">
+                        <div class="post-meta">List • November 2025</div>
+                        <h3 class="post-title">Five comfort watches that actually age well</h3>
+                        <p class="post-excerpt">
+                            Rewatchable, warm, and surprisingly sharp when revisited years later.
+                        </p>
+                        <div class="post-footer">
+                            <span class="tag-pill">Comfort</span>
+                            <span>4 min read</span>
+                        </div>
+                    </article>
+
+                    <article class="post-card">
+                        <div class="post-meta">Notes • November 2025</div>
+                        <h3 class="post-title">What Letterboxd doesn’t show about your taste</h3>
+                        <p class="post-excerpt">
+                            The ratings are useful, but the real story is in the gaps and contradictions.
+                        </p>
+                        <div class="post-footer">
+                            <span class="tag-pill">Meta</span>
+                            <span>3 min read</span>
+                        </div>
+                    </article>
+                </div>
+            </main>
+
+            <!-- SIDEBAR -->
+            <aside>
+
+                <div class="sidebar-card">
+                    <h3>About this blog</h3>
+                    <p>
+                        A quieter corner of the site, meant for slower thoughts than a rating grid can hold.
+                        Mostly movies and TV, occasionally games and books.
+                    </p>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3>Categories</h3>
+                    <ul class="category-list">
+                        <li><a href="#">Deep dives</a></li>
+                        <li><a href="#">Reviews</a></li>
+                        <li><a href="#">Lists & rankings</a></li>
+                        <li><a href="#">Process & meta</a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3>Recently posted</h3>
+                    <ul class="mini-posts">
+                        <li>
+                            <a href="#">How pacing changes on a second watch</a>
+                            <div class="mini-meta">Essay • 6 min</div>
+                        </li>
+                        <li>
+                            <a href="#">One perfect scene: a hallway, a song, a choice</a>
+                            <div class="mini-meta">Notes • 3 min</div>
+                        </li>
+                        <li>
+                            <a href="#">What makes a villain “re-watchable”?</a>
+                            <div class="mini-meta">Essay • 8 min</div>
+                        </li>
+                    </ul>
+                </div>
+
+            </aside>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div>© 2025 Your Name. Built in the same universe as the entertainment page.</div>
+    </footer>
+
+</div>
+
+<script>
+    // Simple theme toggle using body.dark-mode (matches your existing pattern) [web:7]
+    (function () {
+        const storageKey = 'theme';
+        const body = document.body;
+        const toggle = document.getElementById('themeToggle');
+
+        // Initialize from localStorage
+        const saved = window.localStorage.getItem(storageKey);
+        if (saved === 'dark') {
+            body.classList.add('dark-mode');
+        } else if (saved === 'light') {
+            body.classList.remove('dark-mode');
+        }
+
+        toggle.addEventListener('click', function () {
+            const isDark = body.classList.toggle('dark-mode');
+            window.localStorage.setItem(storageKey, isDark ? 'dark' : 'light');
+        });
+    }());
+</script>
+
+</body>
+</html>
