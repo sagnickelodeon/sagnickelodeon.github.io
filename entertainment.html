@@ -78,30 +78,27 @@
 
         /* Hero Section */
         .hero {
-            background: 
-                linear-gradient(135deg, rgba(102, 126, 234, 0.95), rgba(118, 75, 162, 0.95)),
-                radial-gradient(circle at 20% 50%, rgba(139, 143, 255, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(118, 75, 162, 0.3) 0%, transparent 50%);
-            background-color: #1a1a1a;
-            color: white;
+            background: transparent;
+            color: var(--text-primary, white);
             padding: 6rem 2rem;
             text-align: center;
             position: relative;
             overflow: hidden;
-            border-bottom: 3px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 2px solid rgba(102, 126, 234, 0.2);
         }
         
         .hero::before {
-            content: '🎬 🎥 🍿 📺 🎭 🎪';
+            content: '🎬 🎥 🍿 📺 🎭 🎪 🎨 🎮 📚 🎵';
             position: absolute;
             top: 50%;
             left: -100%;
             width: 200%;
             font-size: 4rem;
-            opacity: 0.05;
+            opacity: 0.08;
             animation: floatEmojis 30s linear infinite;
             pointer-events: none;
             white-space: nowrap;
+            z-index: 0;
         }
         
         @keyframes floatEmojis {
@@ -109,34 +106,14 @@
             100% { left: 100%; }
         }
         
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                repeating-linear-gradient(
-                    90deg,
-                    transparent,
-                    transparent 50px,
-                    rgba(255, 255, 255, 0.03) 50px,
-                    rgba(255, 255, 255, 0.03) 51px
-                );
-            pointer-events: none;
-        }
-
-        
         .hero h1 {
             font-size: 3.5rem;
             margin-bottom: 1rem;
             font-weight: 700;
-            background: linear-gradient(135deg, #fff, #e0e0ff);
+            background: linear-gradient(135deg, #667eea, #764ba2);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
             position: relative;
             z-index: 1;
             letter-spacing: -1px;
@@ -144,12 +121,13 @@
         
         .hero p {
             font-size: 1.3rem;
-            opacity: 0.9;
+            color: var(--text-secondary, #666);
             position: relative;
             z-index: 1;
-            font-weight: 300;
+            font-weight: 400;
             letter-spacing: 0.5px;
         }
+
 
         
         body.dark-mode .hero {
@@ -166,43 +144,37 @@
             display: inline-block;
             margin-top: 2rem;
             padding: 1rem 2.5rem;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            color: white;
+            background: rgba(102, 126, 234, 0.15);
+            backdrop-filter: blur(15px);
+            color: var(--text-primary, #333);
             text-decoration: none;
             border-radius: 50px;
             font-weight: 600;
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            border: 2px solid rgba(102, 126, 234, 0.3);
             transition: all 0.3s ease;
             position: relative;
             z-index: 1;
-            overflow: hidden;
-        }
-        
-        .letterboxd-link::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
         }
         
         .letterboxd-link:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            border-color: rgba(255, 255, 255, 0.6);
-            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            border-color: rgba(102, 126, 234, 0.6);
+            background: rgba(102, 126, 234, 0.25);
         }
         
-        .letterboxd-link:hover::before {
-            width: 300px;
-            height: 300px;
+        body.dark-mode .letterboxd-link {
+            color: #e0e0e0;
+            background: rgba(139, 143, 255, 0.15);
+            border-color: rgba(139, 143, 255, 0.3);
         }
+        
+        body.dark-mode .letterboxd-link:hover {
+            background: rgba(139, 143, 255, 0.25);
+            border-color: rgba(139, 143, 255, 0.6);
+            box-shadow: 0 10px 30px rgba(139, 143, 255, 0.3);
+        }
+
 
 
         /* Container */
