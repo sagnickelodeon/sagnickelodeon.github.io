@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #f5f5f5;
+            --text-primary: #333;
+            --text-secondary: #666;
+            --accent-color: #8b8fff;
+            --card-bg: #ffffff;
+            --card-shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        body.dark-mode {
+            --bg-primary: #000000;
+            --text-primary: #e0e0e0;
+            --text-secondary: #a0a0a0;
+            --accent-color: #8b8fff;
+            --card-bg: rgba(42, 42, 42, 0.3);
+            --card-shadow: rgba(0, 0, 0, 0.5);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: 
+                radial-gradient(at 27% 37%, hsla(215, 98%, 61%, 0.3) 0px, transparent 50%),
+                radial-gradient(at 97% 21%, hsla(125, 98%, 72%, 0.15) 0px, transparent 50%),
+                radial-gradient(at 52% 99%, hsla(354, 98%, 61%, 0.2) 0px, transparent 50%),
+                radial-gradient(at 10% 29%, hsla(256, 96%, 67%, 0.3) 0px, transparent 50%),
+                radial-gradient(at 97% 96%, hsla(38, 60%, 74%, 0.2) 0px, transparent 50%),
+                radial-gradient(at 33% 50%, hsla(222, 67%, 73%, 0.25) 0px, transparent 50%),
+                radial-gradient(at 79% 53%, hsla(343, 68%, 79%, 0.15) 0px, transparent 50%);
+            background-color: var(--bg-primary);
+            transition: background 0.3s ease;
+        }
+
+        body.dark-mode {
+            background: 
+                radial-gradient(at 27% 37%, hsla(215, 98%, 35%, 0.3) 0px, transparent 50%),
+                radial-gradient(at 97% 21%, hsla(280, 98%, 40%, 0.2) 0px, transparent 50%),
+                radial-gradient(at 52% 99%, hsla(200, 98%, 40%, 0.25) 0px, transparent 50%),
+                radial-gradient(at 10% 29%, hsla(256, 96%, 35%, 0.3) 0px, transparent 50%),
+                radial-gradient(at 97% 96%, hsla(180, 80%, 35%, 0.2) 0px, transparent 50%),
+                radial-gradient(at 33% 50%, hsla(240, 90%, 40%, 0.25) 0px, transparent 50%),
+                radial-gradient(at 79% 53%, hsla(270, 85%, 35%, 0.2) 0px, transparent 50%);
+            background-color: #000000;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(139, 143, 255, 0.2);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .theme-toggle {
+            background: var(--card-bg);
+            border: 1px solid rgba(139, 143, 255, 0.3);
+            color: var(--text-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(139, 143, 255, 0.1);
+            border-color: var(--accent-color);
+        }
+
+        article {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 10px 40px var(--card-shadow);
+        }
+
+        .post-date {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            line-height: 1.2;
+        }
+
+        .post-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .post-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .post-content h2 {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .post-content h3 {
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-size: 1.4rem;
+        }
+
+        .post-content a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .post-content a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            article {
+                padding: 2rem 1.5rem;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="entertainment.html">Entertainment</a>
+            </div>
+            <button class="theme-toggle" id="themeToggle">🌗 Toggle Theme</button>
+        </nav>
+
+        <article>
+            <div class="post-date">December 7, 2025</div>
+            <h1>Your Blog Post Title</h1>
+            
+            <div class="post-content">
+                <p>Your blog post content goes here...</p>
+            </div>
+        </article>
+    </div>
+
+    <script>
+        const toggle = document.getElementById('themeToggle');
+        const body = document.body;
+        const storageKey = 'theme';
+
+        const savedTheme = localStorage.getItem(storageKey);
+        if (savedTheme === 'dark') {
+            body.classList.add('dark-mode');
+        }
+
+        toggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            const isDark = body.classList.contains('dark-mode');
+            localStorage.setItem(storageKey, isDark ? 'dark' : 'light');
+        });
+    </script>
+</body>
+</html>
