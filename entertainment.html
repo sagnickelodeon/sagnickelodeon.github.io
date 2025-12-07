@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Watchlist - Movies, Anime & Shows</title>
+    <title>Sagnik Dasgupta - Movies, Anime & Shows</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
         * {
@@ -531,14 +531,14 @@
         /* Dark Mode Background */
         body.dark-mode {
             background: 
-                radial-gradient(at 27% 37%, hsla(215, 98%, 61%, 0.15) 0px, transparent 50%),
-                radial-gradient(at 97% 21%, hsla(125, 98%, 72%, 0.08) 0px, transparent 50%),
-                radial-gradient(at 52% 99%, hsla(354, 98%, 61%, 0.1) 0px, transparent 50%),
-                radial-gradient(at 10% 29%, hsla(256, 96%, 67%, 0.15) 0px, transparent 50%),
-                radial-gradient(at 97% 96%, hsla(38, 60%, 74%, 0.1) 0px, transparent 50%),
-                radial-gradient(at 33% 50%, hsla(222, 67%, 73%, 0.12) 0px, transparent 50%),
-                radial-gradient(at 79% 53%, hsla(343, 68%, 79%, 0.08) 0px, transparent 50%);
-            background-color: #1a1a1a;
+                radial-gradient(at 27% 37%, hsla(215, 98%, 35%, 0.3) 0px, transparent 50%),
+                radial-gradient(at 97% 21%, hsla(280, 98%, 40%, 0.2) 0px, transparent 50%),
+                radial-gradient(at 52% 99%, hsla(200, 98%, 40%, 0.25) 0px, transparent 50%),
+                radial-gradient(at 10% 29%, hsla(256, 96%, 35%, 0.3) 0px, transparent 50%),
+                radial-gradient(at 97% 96%, hsla(180, 80%, 35%, 0.2) 0px, transparent 50%),
+                radial-gradient(at 33% 50%, hsla(240, 90%, 40%, 0.25) 0px, transparent 50%),
+                radial-gradient(at 79% 53%, hsla(270, 85%, 35%, 0.2) 0px, transparent 50%);
+            background-color: #000000;
         }
 
         /* Grain Texture for Dark Mode */
@@ -598,8 +598,22 @@
             box-shadow: 0 5px 20px var(--card-shadow);
         }
         
+        .pick-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+        
         .pick-title {
-            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--text-primary, #333);
+        }
+        
+        .pick-year {
+            font-size: 0.9rem;
+            color: var(--text-secondary, #666);
+            opacity: 0.8;
         }
         
         footer {
@@ -868,27 +882,35 @@
 
         <!-- All-Time Favorites -->
         <div class="top-picks">
-            <h2>⭐ All-Time Favorites</h2>
+            <h2>⭐ Underrated gems</h2>
             <div class="picks-grid">
                 <div class="pick-item">
-                    <div class="pick-poster">🎭</div>
-                    <div class="pick-title">The Shawshank Redemption</div>
+                    <img src="https://www.themoviedb.org/t/p/w600_and_h900_face/ilHG4EayOVoYeKqslspY3pR4wzC.jpg" alt="Run">
+                    <div class="pick-info">
+                        <div class="pick-title">Run</div>
+                        <div class="pick-year">2020</div>
+                    </div>
                 </div>
                 <div class="pick-item">
-                    <div class="pick-poster">🌀</div>
-                    <div class="pick-title">Inception</div>
+                    <img src="https://www.themoviedb.org/t/p/w600_and_h900_face/oJD9KQFoObZmxAS1je56SIFVNJt.jpg" alt="Ready or Not">
+                    <div class="pick-info">
+                        <div class="pick-title">Ready or Not</div>
+                        <div class="pick-year">2019</div>
+                    </div>
                 </div>
                 <div class="pick-item">
-                    <div class="pick-poster">🦇</div>
-                    <div class="pick-title">The Dark Knight</div>
+                    <img src="https://www.themoviedb.org/t/p/w300_and_h450_face/V086R82gNgWrotaXZFO4JhdgB1.jpg" alt="The Man from Earth">
+                    <div class="pick-info">
+                        <div class="pick-title">The Man from Earth</div>
+                        <div class="pick-year">2007</div>
+                    </div>
                 </div>
                 <div class="pick-item">
-                    <div class="pick-poster">🔫</div>
-                    <div class="pick-title">Pulp Fiction</div>
-                </div>
-                <div class="pick-item">
-                    <div class="pick-poster">🌊</div>
-                    <div class="pick-title">Interstellar</div>
+                    <img src="https://www.themoviedb.org/t/p/w300_and_h450_face/zdxQRP7mzczMJBwKnv8MCPRq7rQ.jpg" alt="Timecrimes">
+                    <div class="pick-info">
+                        <div class="pick-title">Timecrimes</div>
+                        <div class="pick-year">2007</div>
+                    </div>
                 </div>
             </div>
         </div>

@@ -560,14 +560,14 @@
         /* Dark Mode Background */
         body.dark-mode {
             background: 
-                radial-gradient(at 27% 37%, hsla(215, 98%, 61%, 0.15) 0px, transparent 50%),
-                radial-gradient(at 97% 21%, hsla(125, 98%, 72%, 0.08) 0px, transparent 50%),
-                radial-gradient(at 52% 99%, hsla(354, 98%, 61%, 0.1) 0px, transparent 50%),
-                radial-gradient(at 10% 29%, hsla(256, 96%, 67%, 0.15) 0px, transparent 50%),
-                radial-gradient(at 97% 96%, hsla(38, 60%, 74%, 0.1) 0px, transparent 50%),
-                radial-gradient(at 33% 50%, hsla(222, 67%, 73%, 0.12) 0px, transparent 50%),
-                radial-gradient(at 79% 53%, hsla(343, 68%, 79%, 0.08) 0px, transparent 50%);
-            background-color: #1a1a1a;
+                radial-gradient(at 27% 37%, hsla(215, 98%, 35%, 0.3) 0px, transparent 50%),
+                radial-gradient(at 97% 21%, hsla(280, 98%, 40%, 0.2) 0px, transparent 50%),
+                radial-gradient(at 52% 99%, hsla(200, 98%, 40%, 0.25) 0px, transparent 50%),
+                radial-gradient(at 10% 29%, hsla(256, 96%, 35%, 0.3) 0px, transparent 50%),
+                radial-gradient(at 97% 96%, hsla(180, 80%, 35%, 0.2) 0px, transparent 50%),
+                radial-gradient(at 33% 50%, hsla(240, 90%, 40%, 0.25) 0px, transparent 50%),
+                radial-gradient(at 79% 53%, hsla(270, 85%, 35%, 0.2) 0px, transparent 50%);
+            background-color: #000000;
         }
 
         /* Grain Texture for Dark Mode */
@@ -684,6 +684,62 @@
             transform: rotate(0deg);
         }
 
+        .location-card {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.2rem 2rem;
+            background: rgba(102, 126, 234, 0.1);
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(102, 126, 234, 0.3);
+            border-radius: 50px;
+            margin-top: 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .location-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.2);
+            border-color: rgba(102, 126, 234, 0.5);
+        }
+        
+        .location-icon {
+            font-size: 2rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .location-info h4 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-secondary, #666);
+            margin: 0;
+            font-weight: 600;
+        }
+        
+        .location-info p {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary, #333);
+            margin: 0.2rem 0 0 0;
+        }
+        
+        body.dark-mode .location-card {
+            background: rgba(139, 143, 255, 0.15);
+            border-color: rgba(139, 143, 255, 0.3);
+        }
+        
+        body.dark-mode .location-card:hover {
+            box-shadow: 0 10px 25px rgba(139, 143, 255, 0.2);
+            border-color: rgba(139, 143, 255, 0.5);
+        }
+
+
     </style>
 </head>
 <body>
@@ -730,6 +786,14 @@
                 <p style="font-size: 1.1rem; color: #666;">
                     When I'm not coding, you can find me exploring new technologies, building something as a side project, or watching something I love.
                 </p>
+
+                <div class="location-card">
+                    <div class="location-icon">📍</div>
+                    <div class="location-info">
+                        <h4>Based in</h4>
+                        <p>Pune, India</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
