@@ -95,22 +95,25 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: transparent;
+            color: var(--text-primary, #333);
             text-align: center;
             padding: 2rem;
         }
+
 
         .hero h1 {
             font-size: 4rem;
             margin-bottom: 1rem;
             animation: fadeInUp 1s ease;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .hero p {
             font-size: 1.5rem;
             margin-bottom: 2rem;
             animation: fadeInUp 1s ease 0.2s both;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .cta-button {
@@ -461,9 +464,14 @@
             color: var(--text-primary);
         }
         
-        section {
+        /* section {
             background-color: var(--bg-primary);
+        } */
+
+        section {
+            background-color: transparent;
         }
+
         
         .project-card,
         .media-card,
