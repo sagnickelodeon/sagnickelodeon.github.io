@@ -347,6 +347,42 @@
             color: #dadada;
         }
 
+        .deep-dive-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            cursor: pointer;
+            margin-left: 8px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        
+        .deep-dive-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+        
+        .deep-dive-btn.active {
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        }
+        
+        .deep-dive-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        
+        .deep-dive-content.show {
+            max-height: 500px;
+        }
+        
+        .deep-dive-content ul {
+            margin-top: 8px;
+        }
+
 
         /* Projects Grid */
         .projects-grid {
@@ -1107,38 +1143,56 @@
                     <!-- Add more detailed information here -->
                     <ul>
                         <li>Architected and deployed scalable data pipelines using Azure Data Factory and PySpark in Databricks, achieving a 50% improvement in data processing performance.</li>
-                        <ul>
-                            <li>Migrated over 200 GB data from legacy fragmented CSV to delta tables in Databricks hive metastore.</li>
-                            <li>Converted older code from pandas to pyspark, utilizing databricks' superior optimization and parallelization features.</li>
-                        </ul>
+                        <button class="deep-dive-btn">Technical Deep Dive</button>
+                        <div class="deep-dive-content">
+                            <ul>
+                                <li>Migrated over 200 GB data from legacy fragmented CSV to delta tables in Databricks hive metastore.</li>
+                                <li>Converted older code from pandas to pyspark, utilizing databricks' superior optimization and parallelization features.</li>
+                            </ul>
+                        </div>
                         <li>Set up end-to-end flows starting from data ingestion, processing, and user notification in Azure workspace.</li>
+                        <button class="deep-dive-btn">Technical Deep Dive</button>
+                        <div class="deep-dive-content">
                         <ul>
                             <li>Set up data ingestion flows from multiple sources including Dremio, Oracle DB, and Azure blob storage for over 100 GB of data.</li>
                             <li>Utilized pyspark in databricks for processing and storage in hive metastore and azure blob in a RAID 1 architecture.</li>
                             <li>Orchestrated the entire flow from Azure Data factory with periodic triggers for automated runs.</li>
                             <li>Used Microsoft Graph API and Logic Apps for user notifications upon pipeline failure/success.</li>
                         </ul>
+                        </div>
                         <li>Employed semantic search, document retrieval, and prompt engineering to enhance NLP-driven features.</li>
+                        <button class="deep-dive-btn">Technical Deep Dive</button>
+                        <div class="deep-dive-content">
                         <ul>
                             <li>Set up FAISS vector index and retrieval with LlamaIndex for context driven queries.</li>
                             <li>Enhanced user query qualities with prompt engineering before LLM call.</li>
                         </ul>
+                        </div>
                         <li>Designed and implemented an algorithm to automatically configure personas in LLM-based chatbots, eliminating the need for manual user input and addressing a key usability challenge.</li>
+                        <button class="deep-dive-btn">Technical Deep Dive</button>
+                        <div class="deep-dive-content">
                         <ul>
                             <li>Used <i>text-embedding-ada-002</i> to develop an automatic persona detection system based on cosine similarity.</li>
                             <li>The model is adaptible to new queries as they come in and can update accordingly.</li>
                         </ul>
+                        </div>
                         <li>Conducted continuous exploration of cutting-edge tools like Llamaparse, Snowflake Cortex, DeepSeek Reasoning, LangGraph etc. to future-proof data systems.</li>
+                        <button class="deep-dive-btn">Technical Deep Dive</button>
+                        <div class="deep-dive-content">
                         <ul>
                             <li>Explored Llamaparse parsing and evaluated its viability for different file formats.</li>
                             <li>Compared Deepseek R1 model along with Openai o1 and o3 for a detailed analysis on various metrics.</li>
                             <li>Tested LangGraph Agentic AI system and its integration with existing systems to solve business pain points.</li>
                         </ul>
+                        </div>
                         <li>Performed complex web scraping from various sites to gather data.</li>
+                        <button class="deep-dive-btn">Technical Deep Dive</button>
+                        <div class="deep-dive-content">
                         <ul>
                             <li>Used async with Playwright for asynchronous scraping.</li>
                             <li>Leveraged BeautifulSoup to parse raw HTML into meaningful data.</li>
                         </ul>
+                        </div>
                         <li><b>Technologies: Databricks, Azure Data Factory, Logic Apps, Microsoft Graph API, Snowflake, LangGraph, LangChain</b></li>
                     </ul>
                 </div>
@@ -1157,17 +1211,23 @@
                     <!-- Add more detailed information here -->
                     <ul>
                         <li>Designed and implemented a GenAI-based chatbot for 1,400+ global internal users using OpenAI LLMs, embeddings, and RAG techniques; integrated seamlessly into production via Azure Kubernetes Service and Azure Machine Learning</li>
+                        <button class="deep-dive-btn">Technical Deep Dive</button>
+                        <div class="deep-dive-content">
                         <ul>
                             <li>Utilized GPT-3.5 and GPT-4 in its early stages.</li>
                             <li>Implemented user query content checks using lighter LLMs to provide smooth user experience.</li>
                             <li>Deployed on Azure Machine Learning service for active endpoints that can be utilized by Power Apps to provide clean user interface.</li>
                         </ul>
+                        </div>
                         <li>Developed modular cloud-native infrastructure ensuring robustness and adaptability, using AKS, AML, and Azure Blob Storage.</li>
+                        <button class="deep-dive-btn">Technical Deep Dive</button>
+                        <div class="deep-dive-content">
                         <ul>
                             <li>Created a modular monolithic code structure for fast debugging but singular deployment.</li>
                             <li>Added logging of all info for policy compliance and debugging purposes.</li>
                             <li>Enabled auto-scaling to handle busy points in a day.</li>
                         </ul>
+                        </div>
                         <li><b>Technologies: OpenAI, Azure Machine Learning, LlamaIndex, Databricks</b></li>
                     </ul>
                 </div>
@@ -1523,6 +1583,32 @@
 
     </script>
 
+    <script>
+        // Deep Dive functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const deepDiveBtns = document.querySelectorAll('.deep-dive-btn');
+            
+            deepDiveBtns.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation(); // Prevent triggering parent collapsible
+                    
+                    const content = this.nextElementSibling;
+                    const isOpen = content.classList.contains('show');
+                    
+                    if (isOpen) {
+                        content.classList.remove('show');
+                        this.classList.remove('active');
+                        this.textContent = '🔍 Deep Dive';
+                    } else {
+                        content.classList.add('show');
+                        this.classList.add('active');
+                        this.textContent = '📖 Less Details';
+                    }
+                });
+            });
+        });
+
+    </script>
 
 </body>
 </html>
