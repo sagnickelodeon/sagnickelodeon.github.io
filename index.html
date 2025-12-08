@@ -212,6 +212,52 @@
             color: #666;
         }
 
+        .collapsible {
+            background: none;
+            border: none;
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
+            padding: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            transition: opacity 0.3s;
+        }
+        
+        .collapsible:hover {
+            opacity: 0.8;
+        }
+        
+        .collapsible-header {
+            flex: 1;
+        }
+        
+        .toggle-icon {
+            font-size: 0.8em;
+            transition: transform 0.3s ease;
+            margin-left: 10px;
+        }
+        
+        .collapsible.active .toggle-icon {
+            transform: rotate(-180deg);
+        }
+        
+        .content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        
+        .content ul {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+        
+        .content li {
+            margin: 5px 0;
+        }
+
         /* Projects Grid */
         .projects-grid {
             display: grid;
@@ -803,16 +849,42 @@
         <h2>Experience</h2>
         <div class="timeline">
             <div class="timeline-item">
-                <h3>Deputy Manager - Data Engineer</h3>
-                <div class="date">April 2024 - Present</div>
-                <p><strong>Michelin</strong></p>
-                <p>Architected cloud-native systems to achieve 50% higher processing efficiency while deploying GenAI and RAG solutions on Azure Kubernetes Service.</p>
+                <button class="collapsible">
+                    <div class="collapsible-header">
+                        <h3>Deputy Manager - Data Engineer</h3>
+                        <div class="date">April 2024 - Present</div>
+                        <p><strong>Michelin</strong></p>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </button>
+                <div class="content">
+                    <p>Architected cloud-native systems to achieve 50% higher processing efficiency while deploying GenAI and RAG solutions on Azure Kubernetes Service.</p>
+                    <!-- Add more detailed information here -->
+                    <ul>
+                        <li>Additional detail about responsibilities</li>
+                        <li>Projects worked on</li>
+                        <li>Technologies: Azure, Kubernetes, GenAI, RAG</li>
+                    </ul>
+                </div>
             </div>
             <div class="timeline-item">
-                <h3>Specialist - Data Engineer</h3>
-                <div class="date">June 2023 - March 2024</div>
-                <p><strong>Michelin</strong></p>
-                <p>Built and deployed scalable data pipelines using Azure Data Factory and PySpark on Databricks to establish a reliable data processing foundation.</p>
+                <button class="collapsible">
+                    <div class="collapsible-header">
+                        <h3>Specialist - Data Engineer</h3>
+                        <div class="date">June 2023 - March 2024</div>
+                        <p><strong>Michelin</strong></p>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </button>
+                <div class="content">
+                    <p>Built and deployed scalable data pipelines using Azure Data Factory and PySpark on Databricks to establish a reliable data processing foundation.</p>
+                    <!-- Add more detailed information here -->
+                    <ul>
+                        <li>Additional detail about responsibilities</li>
+                        <li>Projects worked on</li>
+                        <li>Technologies: Azure Data Factory, PySpark, Databricks</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
@@ -1003,6 +1075,23 @@
             // Save theme preference to localStorage
             const theme = body.classList.contains('dark-mode') ? 'dark' : 'light';
             localStorage.setItem('theme', theme);
+        });
+    </script>
+
+    <script>
+        const collapsibles = document.querySelectorAll('.collapsible');
+        
+        collapsibles.forEach(button => {
+            button.addEventListener('click', function() {
+                this.classList.toggle('active');
+                const content = this.nextElementSibling;
+                
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                } else {
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                }
+            });
         });
     </script>
 
