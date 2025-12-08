@@ -1042,7 +1042,7 @@
 
     <!-- Experience Section -->
     <section id="experience">
-        <h2>Experience</h2>
+        <h2>Engineering and Systems</h2>
         <div class="timeline">
             <div class="timeline-item">
                 <button class="collapsible">
@@ -1058,11 +1058,39 @@
                     <!-- Add more detailed information here -->
                     <ul>
                         <li>Architected and deployed scalable data pipelines using Azure Data Factory and PySpark in Databricks, achieving a 50% improvement in data processing performance.</li>
+                        <ul>
+                            <li>Migrated over 200 GB data from legacy fragmented CSV to delta tables in Databricks hive metastore.</li>
+                            <li>Converted older code from pandas to pyspark, utilizing databricks' superior optimization and parallelization features.</li>
+                        </ul>
                         <li>Set up end-to-end flows starting from data ingestion, processing, and user notification in Azure workspace.</li>
+                        <ul>
+                            <li>Set up data ingestion flows from multiple sources including Dremio, Oracle DB, and Azure blob storage for over 100 GB of data.</li>
+                            <li>Utilized pyspark in databricks for processing and storage in hive metastore and azure blob in a RAID 1 architecture.</li>
+                            <li>Orchestrated the entire flow from Azure Data factory with periodic triggers for automated runs.</li>
+                            <li>Used Microsoft Graph API and Logic Apps for user notifications upon pipeline failure/success.</li>
+                        </ul>
                         <li>Employed semantic search, document retrieval, and prompt engineering to enhance NLP-driven features.</li>
+                        <ul>
+                            <li>Set up FAISS vector index and retrieval with LlamaIndex for context driven queries.</li>
+                            <li>Enhanced user query qualities with prompt engineering before LLM call.</li>
+                        </ul>
                         <li>Designed and implemented an algorithm to automatically configure personas in LLM-based chatbots, eliminating the need for manual user input and addressing a key usability challenge.</li>
+                        <ul>
+                            <li>Used <i>text-embedding-ada-002</i> to develop an automatic persona detection system based on cosine similarity.</li>
+                            <li>The model is adaptible to new queries as they come in and can update accordingly.</li>
+                        </ul>
                         <li>Conducted continuous exploration of cutting-edge tools like Llamaparse, Snowflake Cortex, DeepSeek Reasoning, LangGraph etc. to future-proof data systems.</li>
-                        <li><b>Technologies: Databricks, Azure Data Factory, Logic Apps, Microsoft Graph API, Snowflake, LangGraph</b></li>
+                        <ul>
+                            <li>Explored Llamaparse parsing and evaluated its viability for different file formats.</li>
+                            <li>Compared Deepseek R1 model along with Openai o1 and o3 for a detailed analysis on various metrics.</li>
+                            <li>Tested LangGraph Agentic AI system and its integration with existing systems to solve business pain points.</li>
+                        </ul>
+                        <li>Performed complex web scraping from various sites to gather data.</li>
+                        <ul>
+                            <li>Used async with Playwright for asynchronous scraping.</li>
+                            <li>Leveraged BeautifulSoup to parse raw HTML into meaningful data.</li>
+                        </ul>
+                        <li><b>Technologies: Databricks, Azure Data Factory, Logic Apps, Microsoft Graph API, Snowflake, LangGraph, LangChain</b></li>
                     </ul>
                 </div>
             </div>
@@ -1079,8 +1107,18 @@
                     <p>Built and deployed scalable data pipelines using Azure Data Factory and PySpark on Databricks to establish a reliable data processing foundation.</p>
                     <!-- Add more detailed information here -->
                     <ul>
-                        <li>Designed and implemented a GenAI-based chatbot for 1,400+ global users using OpenAI LLMs, embeddings, and RAG techniques; integrated seamlessly into production via Azure Kubernetes Service and Azure Machine Learning</li>
+                        <li>Designed and implemented a GenAI-based chatbot for 1,400+ global internal users using OpenAI LLMs, embeddings, and RAG techniques; integrated seamlessly into production via Azure Kubernetes Service and Azure Machine Learning</li>
+                        <ul>
+                            <li>Utilized GPT-3.5 and GPT-4 in its early stages.</li>
+                            <li>Implemented user query content checks using lighter LLMs to provide smooth user experience.</li>
+                            <li>Deployed on Azure Machine Learning service for active endpoints that can be utilized by Power Apps to provide clean user interface.</li>
+                        </ul>
                         <li>Developed modular cloud-native infrastructure ensuring robustness and adaptability, using AKS, AML, and Azure Blob Storage.</li>
+                        <ul>
+                            <li>Created a modular monolithic code structure for fast debugging but singular deployment.</li>
+                            <li>Added logging of all info for policy compliance and debugging purposes.</li>
+                            <li>Enabled auto-scaling to handle busy points in a day.</li>
+                        </ul>
                         <li><b>Technologies: OpenAI, Azure Machine Learning, LlamaIndex, Databricks</b></li>
                     </ul>
                 </div>
@@ -1119,7 +1157,7 @@
                     <h3>F1 Advanced Statistics Dashboard</h3>
                     <p>Developed an interactive analytics platform using Python and Streamlit to visualize real-time Formula 1 race statistics and performance metrics.</p>
                     <div class="project-tags">
-                        <span class="tag">Python</span>
+                        <span class="tag">Ergast</span>
                         <span class="tag">Streamlit</span>
                         <span class="tag">Pandas</span>
                         <span class="tag">Microsoft Azure</span>
@@ -1136,9 +1174,9 @@
                     <h3>Duolingo Global Leaderboard</h3>
                     <p>Engineered a scalable data pipeline and web application to process and display global rankings for Duolingo users.</p>
                     <div class="project-tags">
-                        <span class="tag">Python</span>
+                        <span class="tag">Selenium</span>
                         <span class="tag">Streamlit</span>
-                        <span class="tag">Web Scraping</span>
+                        <span class="tag">BeautifulSoup</span>
                         <span class="tag">Microsoft Azure</span>
                     </div>
                 </div>
@@ -1168,22 +1206,22 @@
             <div class="skill-item">
                 <div class="skill-icon">🏭</div>
                 <h3>Data Engineering</h3>
-                <p>Databricks, Pyspark, SQL, Data Factory</p>
+                <p>Databricks, Pyspark, SQL, Data Factory, Delta Table</p>
             </div>
             <div class="skill-item">
                 <div class="skill-icon">📊</div>
                 <h3>Data Science</h3>
-                <p>NLP, GenAI, RAG</p>
+                <p>GenAI, Embeddings, RAG, LlamaIndex, LlamaParse, LangGraph, Agentic AI, FAISS</p>
             </div>
             <div class="skill-item">
                 <div class="skill-icon">🖳</div>
                 <h3>Programming Languages</h3>
-                <p>Python, C, C++, Java</p>
+                <p>Python, C, C++, Java, Spark, SQL</p>
             </div>
             <div class="skill-item">
                 <div class="skill-icon">☁️</div>
                 <h3>Cloud</h3>
-                <p>Azure, Docker, CI/CD</p>
+                <p>Azure, K8S, AMLS, OAuth, REST APIs</p>
             </div>
         </div>
     </section>
