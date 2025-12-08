@@ -1132,7 +1132,9 @@
         const navLinks = document.querySelectorAll('nav a[href^="#"]');
         
         function highlightNavLink() {
-          let scrollY = window.scrollY + 200; // Adjust this offset based on your navbar height
+          // let scrollY = window.scrollY + 600; // Adjust this offset based on your navbar height
+            let scrollY = window.scrollY + window.innerHeight / 2;
+
           
           // Find the current section
           let current = '';
