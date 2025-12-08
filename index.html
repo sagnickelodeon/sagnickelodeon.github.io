@@ -93,6 +93,20 @@
             color: #6366f1;
         }
 
+        nav {
+            background: var(--nav-bg);
+        }
+        
+        nav a {
+            color: var(--text-primary);
+        }
+
+        nav a.active {
+          font-weight: 800;
+          color: var(--accent-color);; /* Or any color you prefer */
+          border-bottom: 2px solid var(--accent-color);; /* Optional underline */
+        }
+
         /* Hero Section */
         .hero {
             height: 100vh;
@@ -806,14 +820,6 @@
             transition: background-color 0.3s ease, color 0.3s ease;
         } */
         
-        nav {
-            background: var(--nav-bg);
-        }
-        
-        nav a {
-            color: var(--text-primary);
-        }
-        
         /* section {
             background-color: var(--bg-primary);
         } */
@@ -968,12 +974,6 @@
             .projects-grid {
                 grid-template-columns: 1fr;
             }
-        }
-
-        nav a.active {
-          font-weight: 800;
-          color: var(--accent-color);; /* Or any color you prefer */
-          border-bottom: 2px solid var(--accent-color);; /* Optional underline */
         }
 
 
