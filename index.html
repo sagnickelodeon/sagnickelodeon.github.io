@@ -1311,39 +1311,74 @@
 
     <script>
         // Copy email functionality
-        const copyEmailBtn = document.querySelector('.copy-email-btn');
-        const copyFeedback = document.getElementById('copyFeedback');
-        const emailAddress = 'sagnikdasgupta.dataengineer@gmail.com';
-        
-        if (copyEmailBtn) {
-            copyEmailBtn.addEventListener('click', function() {
-                navigator.clipboard.writeText(emailAddress).then(function() {
-                    copyFeedback.classList.add('show');
-                    setTimeout(function() {
-                        copyFeedback.classList.remove('show');
-                    }, 2500);
-                }).catch(function(err) {
-                    console.error('Failed to copy email: ', err);
-                    alert('Failed to copy email. Please try again.');
+        document.addEventListener('DOMContentLoaded', function() {
+            const copyEmailBtn = document.querySelector('.copy-email-btn');
+            const copyFeedback = document.getElementById('copyFeedback');
+            const emailAddress = 'sagnikdasgupta.dataengineer@gmail.com';
+            
+            if (copyEmailBtn) {
+                copyEmailBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Copy to clipboard
+                    navigator.clipboard.writeText(emailAddress).then(function() {
+                        // Show success feedback
+                        if (copyFeedback) {
+                            copyFeedback.classList.add('show');
+                            setTimeout(function() {
+                                copyFeedback.classList.remove('show');
+                            }, 2500);
+                        }
+                        
+                        // Optional: Change button text temporarily
+                        const btnText = copyEmailBtn.querySelector('.btn-text');
+                        if (btnText) {
+                            const originalText = btnText.textContent;
+                            btnText.textContent = 'Copied!';
+                            setTimeout(function() {
+                                btnText.textContent = originalText;
+                            }, 2000);
+                        }
+                    }).catch(function(err) {
+                        console.error('Failed to copy email: ', err);
+                        
+                        // Fallback for older browsers
+                        fallbackCopyTextToClipboard(emailAddress);
+                    });
                 });
-            });
-        }
-    
-        // Collapsible experience sections (keep your existing code)
-        const collapsibles = document.querySelectorAll('.collapsible');
-        
-        collapsibles.forEach(button => {
-            button.addEventListener('click', function() {
-                this.classList.toggle('active');
-                const content = this.nextElementSibling;
+            }
+            
+            // Fallback copy method for older browsers
+            function fallbackCopyTextToClipboard(text) {
+                const textArea = document.createElement('textarea');
+                textArea.value = text;
+                textArea.style.position = 'fixed';
+                textArea.style.top = '0';
+                textArea.style.left = '0';
+                textArea.style.opacity = '0';
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
                 
-                if (content.style.maxHeight) {
-                    content.style.maxHeight = null;
-                } else {
-                    content.style.maxHeight = content.scrollHeight + 'px';
+                try {
+                    const successful = document.execCommand('copy');
+                    if (successful && copyFeedback) {
+                        copyFeedback.classList.add('show');
+                        setTimeout(function() {
+                            copyFeedback.classList.remove('show');
+                        }, 2500);
+                    } else {
+                        alert('Email: ' + text);
+                    }
+                } catch (err) {
+                    console.error('Fallback: Oops, unable to copy', err);
+                    alert('Email: ' + text);
                 }
-            });
+                
+                document.body.removeChild(textArea);
+            }
         });
+
     </script>
 
 
