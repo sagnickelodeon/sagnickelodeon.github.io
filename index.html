@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sagnik Dasgupta | Systems Architect</title>
+    <title>Sagnik Dasgupta | Data Engineer</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
         
@@ -195,11 +195,11 @@
             background: var(--bg-color); border: 3px solid var(--accent-primary);
         }
 
-        /* UPDATED: Role header using flexbox to push date to the right */
+        /* --- Flexbox Fix for Date Alignment --- */
         .role-header { 
             margin-bottom: 1rem;
-            display: flex;
-            justify-content: space-between;
+            display: flex; 
+            justify-content: space-between; 
             align-items: center;
         }
         .role-title { font-size: 1.25rem; font-weight: 700; color: var(--text-primary); }
@@ -236,8 +236,55 @@
         .edu-school { font-size: 1rem; color: var(--text-secondary); margin-bottom: 1rem; }
         .edu-focus { font-size: 0.9rem; color: var(--text-secondary); font-style: italic; }
 
-        /* --- Footer --- */
-        footer { text-align: center; padding: 2rem; color: var(--text-secondary); font-size: 0.9rem; opacity: 0.7; }
+        /* --- Footer & CTA --- */
+        footer { 
+            text-align: center; 
+            padding: 4rem 2rem; 
+            color: var(--text-secondary); 
+            font-size: 0.9rem; 
+        }
+        
+        /* NEW: Single High-Impact Copy Button */
+        .cta-container {
+            margin-bottom: 3rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .cta-text {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--text-primary), var(--accent-primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .cta-btn-copy {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            border: none;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            color: white;
+            box-shadow: 0 4px 15px var(--gradient-1);
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+        .cta-btn-copy:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(79, 70, 229, 0.4);
+        }
+        .cta-btn-copy.copied {
+            background: #10b981; /* Success Green */
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+        }
 
         /* --- Theme Toggle --- */
         .theme-toggle {
@@ -273,7 +320,7 @@
                     Transforming data into production-grade AI. Focused on engineering rigor, scalability, and distributed systems.
                 </p>
                 <div class="social-row">
-                    <button id="email-btn" class="social-btn">Email</button>
+                    <button id="header-email-btn" class="social-btn">Email</button>
                     <a href="https://linkedin.com/in/sagnickelodeon" target="_blank" class="social-btn">LinkedIn</a>
                     <a href="https://github.com/sagnickelodeon" target="_blank" class="social-btn">GitHub</a>
                 </div>
@@ -291,6 +338,7 @@
                         <span class="pill">Apache Spark</span>
                         <span class="pill">Delta Lake</span>
                         <span class="pill">Azure Data Factory</span>
+                        <span class="pill">Playwright</span>
                     </div>
                 </div>
 
@@ -429,6 +477,12 @@
         </div>
 
         <footer>
+            <div class="cta-container">
+                <h2 class="cta-text">Ready to build scalable systems?</h2>
+                <button id="footer-email-btn" class="cta-btn-copy">
+                    📋 Copy Email Address
+                </button>
+            </div>
             <p>© 2025 Sagnik Dasgupta. All rights reserved.</p>
         </footer>
 
@@ -452,25 +506,34 @@
             localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
         });
 
-        // Email Copy Logic
-        const emailBtn = document.getElementById('email-btn');
-        emailBtn.addEventListener('click', () => {
-            const email = "sagnikdasgupta.dataengineer@gmail.com";
-            
-            navigator.clipboard.writeText(email).then(() => {
-                // Success feedback
-                const originalText = emailBtn.innerText;
-                emailBtn.innerText = "Copied!";
-                emailBtn.classList.add('copied');
-                
-                setTimeout(() => {
-                    emailBtn.innerText = originalText;
-                    emailBtn.classList.remove('copied');
-                }, 2000);
-            }).catch(err => {
-                console.error('Failed to copy email', err);
+        // REUSABLE COPY FUNCTION
+        function handleCopy(buttonId, textToCopy) {
+            const btn = document.getElementById(buttonId);
+            if (!btn) return;
+
+            btn.addEventListener('click', () => {
+                navigator.clipboard.writeText(textToCopy).then(() => {
+                    const originalText = btn.innerHTML; // Save icon+text
+                    
+                    // Visual Feedback
+                    btn.innerText = "Copied!";
+                    btn.classList.add('copied');
+                    
+                    setTimeout(() => {
+                        btn.innerHTML = originalText; // Restore icon+text
+                        btn.classList.remove('copied');
+                    }, 2000);
+                }).catch(err => {
+                    console.error('Failed to copy', err);
+                });
             });
-        });
+        }
+
+        // Initialize buttons
+        const myEmail = "sagnikdasgupta.dataengineer@gmail.com";
+        handleCopy('header-email-btn', myEmail);
+        handleCopy('footer-email-btn', myEmail);
+
     </script>
 </body>
 </html>
