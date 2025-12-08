@@ -794,7 +794,11 @@
             border-bottom: 2px solid #667eea;
         }
 
-
+        nav a.active {
+          font-weight: 800;
+          color: #ffc107; /* Or any color you prefer */
+          border-bottom: 2px solid #ffc107; /* Optional underline */
+        }
 
 
     </style>
@@ -807,7 +811,7 @@
             <li><a href="entertainment.html">Entertainment</a></li>
             <li><a href="#underrated">Underrated</a></li>
             <li><a href="#movies">Movies</a></li>
-            <li><a href="#anime">Anime</a></li>
+            <li><a href="#animes">Anime</a></li>
             <li><a href="#shows">TV Shows</a></li>
             <li><a href="#blog">My thoughts</a></li>
         </ul>
@@ -1122,6 +1126,39 @@
         });
     </script>
 
+    <script>
+        // Get all sections that have an ID
+        const sections = document.querySelectorAll('div[id]');
+        const navLinks = document.querySelectorAll('nav a[href^="#"]');
+        
+        // Function to highlight active nav link
+        function highlightNavLink() {
+          let scrollY = window.pageYOffset;
+          
+          sections.forEach(section => {
+            const sectionTop = section.offsetTop - 100; // Offset for better UX
+            const sectionHeight = section.offsetHeight;
+            const sectionId = section.getAttribute('id');
+            
+            if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+              // Remove active class from all links
+              navLinks.forEach(link => link.classList.remove('active'));
+              
+              // Add active class to current link
+              const activeLink = document.querySelector(`nav a[href="#${sectionId}"]`);
+              if (activeLink) {
+                activeLink.classList.add('active');
+              }
+            }
+          });
+        }
+        
+        // Listen for scroll events
+        window.addEventListener('scroll', highlightNavLink);
+        
+        // Also trigger on page load
+        highlightNavLink();
+    </script>
 
 
 
