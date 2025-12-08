@@ -290,16 +290,12 @@
         }
         
         .content ul {
-            margin-top: 10px;
-            padding-left: 20px;
-        }
-        
-        .content > ul {
             list-style-type: none;
             padding-left: 0;
+            margin-top: 10px;
         }
         
-        .content > ul > li {
+        .content li {
             margin: 15px 0;
             padding: 12px 15px;
             background: rgba(102, 126, 234, 0.05);
@@ -308,44 +304,16 @@
             line-height: 1.6;
         }
         
-        .content ul ul {
-            margin-top: 8px;
-            margin-bottom: 8px;
-            padding-left: 50px;
-            list-style-type: disc;
-        }
-        
-        .content ul ul li {
-            margin: 6px 0;
-            padding: 4px 0;
-            background: none;
-            border: none;
-            line-height: 1.5;
-            color: #555;
-        }
-        
-        .content li {
-            margin: 5px 0;
-        }
-        
         .content p {
             line-height: 1.7;
             margin-bottom: 15px;
         }
         
         .content b, .content strong {
-            display: block;
-            margin-top: 15px;
-            padding: 10px;
-            background: rgba(102, 126, 234, 0.1);
-            border-radius: 4px;
             color: #667eea;
+            font-weight: 600;
         }
-        
-        /* Dark mode adjustments for nested lists */
-        body.dark-mode .content ul ul li {
-            color: #dadada;
-        }
+
 
         .deep-dive-btn {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
