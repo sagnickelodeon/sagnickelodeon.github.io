@@ -229,32 +229,41 @@
             opacity: 0.8;
         }
         
-        .collapsible-header {
-            flex: 1;
+        .collapsible {
+            background: linear-gradient(to right, transparent, rgba(0, 123, 255, 0.05));
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 10px;
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            transition: all 0.3s;
+        }
+        
+        .collapsible:hover {
+            background: rgba(0, 123, 255, 0.08);
+            border-color: #007bff;
+            box-shadow: 0 2px 8px rgba(0, 123, 255, 0.1);
         }
         
         .toggle-icon {
-            font-size: 1.2em;
-            font-weight: bold;
+            font-size: 1.5em;
             transition: transform 0.3s ease;
-            margin-left: 10px;
-            background: #007bff;
-            color: white;
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            margin-left: 15px;
+            color: #007bff;
+            font-weight: bold;
+            min-width: 24px;
+            text-align: center;
         }
         
-        .collapsible.active .toggle-icon::before {
-            content: '−';
+        .collapsible.active .toggle-icon {
+            transform: rotate(180deg);
         }
-        
-        .toggle-icon::before {
-            content: '+';
-        }
+
         
         .content {
             max-height: 0;
