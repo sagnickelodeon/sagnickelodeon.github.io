@@ -1388,23 +1388,24 @@
     </script>
 
     <script>
-        const sections = document.querySelectorAll('div[id]');
-        const navLinks = document.querySelectorAll('nav a[href^="#"]');
+        const sections = document.querySelectorAll('section[id], div[id]');
+        const navLinks = document.querySelectorAll('nav a[href^="#"]'); // Only select anchor links
         
         function highlightNavLink() {
-          // let scrollY = window.scrollY + 200; // Adjust this offset based on your navbar height
+          // let scrollY = window.scrollY + 200; // Adjust based on your navbar height
             let scrollY = window.scrollY + window.innerHeight / 2;
           
-          // Find the current section
-          let current = '';
+          let current = 'home'; // Default to home
           
           sections.forEach(section => {
             const sectionTop = section.offsetTop;
-            const sectionHeight = section.offsetHeight;
+            const sectionId = section.getAttribute('id');
             
-            // Check if we're past the top of this section
-            if (scrollY >= sectionTop) {
-              current = section.getAttribute('id');
+            // Skip non-section IDs like theme-toggle
+            if (sectionId && ['home', 'about', 'experience', 'education', 'projects', 'skills', 'contact'].includes(sectionId)) {
+              if (scrollY >= sectionTop - 300) {
+                current = sectionId;
+              }
             }
           });
           
@@ -1418,7 +1419,9 @@
         }
         
         window.addEventListener('scroll', highlightNavLink);
+        window.addEventListener('load', highlightNavLink);
         highlightNavLink();
+
 
     </script>
 
