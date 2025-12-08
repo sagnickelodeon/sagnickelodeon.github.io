@@ -970,6 +970,13 @@
             }
         }
 
+        nav a.active {
+          font-weight: 800;
+          color: #ffc107; /* Or any color you prefer */
+          border-bottom: 2px solid #ffc107; /* Optional underline */
+        }
+
+
 
 
     </style>
@@ -1377,6 +1384,41 @@
                 document.body.removeChild(textArea);
             }
         });
+
+    </script>
+
+    <script>
+        const sections = document.querySelectorAll('div[id]');
+        const navLinks = document.querySelectorAll('nav a[href^="#"]');
+        
+        function highlightNavLink() {
+          // let scrollY = window.scrollY + 200; // Adjust this offset based on your navbar height
+            let scrollY = window.scrollY + window.innerHeight / 2;
+          
+          // Find the current section
+          let current = '';
+          
+          sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+            
+            // Check if we're past the top of this section
+            if (scrollY >= sectionTop) {
+              current = section.getAttribute('id');
+            }
+          });
+          
+          // Update active class
+          navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) {
+              link.classList.add('active');
+            }
+          });
+        }
+        
+        window.addEventListener('scroll', highlightNavLink);
+        highlightNavLink();
 
     </script>
 
