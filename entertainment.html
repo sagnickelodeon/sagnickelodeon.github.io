@@ -12,6 +12,10 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             line-height: 1.6;
@@ -27,6 +31,15 @@
             background-color: #f5f5f5;
             transition: background 0.3s ease;
             position: relative;
+        }
+
+        :root {
+            --accent-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --card-shadow: rgba(0, 0, 0, 0.2);
+        }
+        
+        body.dark-mode {
+            --card-shadow: rgba(0, 0, 0, 0.4);
         }
 
         /* Grain Texture for Light Mode */
@@ -720,17 +733,67 @@
         }
 
         .theme-toggle {
-            background: transparent;
-            border: 2px solid var(--border-color, #ddd);
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            cursor: pointer;
             position: fixed;
-            top: 20px;
-            right: 20px;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--accent-gradient);
+            box-shadow: 0 5px 20px var(--card-shadow);
+            border: none;
+            cursor: pointer;
             z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
+        
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 30px rgba(102, 110, 234, 0.4);
+        }
+        
+        .theme-toggle:active {
+            transform: scale(0.95);
+        }
+
+        /* Theme toggle icons */
+        .sun-icon,
+        .moon-icon {
+            position: absolute;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        
+        body:not(.dark-mode) .sun-icon {
+            opacity: 1;
+            transform: rotate(0deg);
+        }
+        
+        body:not(.dark-mode) .moon-icon {
+            opacity: 0;
+            transform: rotate(180deg);
+        }
+        
+        body.dark-mode .sun-icon {
+            opacity: 0;
+            transform: rotate(-180deg);
+        }
+        
+        body.dark-mode .moon-icon {
+            opacity: 1;
+            transform: rotate(0deg);
+        }
+
+
+
+        nav ul li a.active {
+            color: #667eea;
+            border-bottom: 2px solid #667eea;
+        }
+
 
 
 
@@ -807,32 +870,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- Blog Section -->
-        <section id="blog">
-            <h2><span class="section-emoji">✍️</span> Movie Thoughts & Reviews</h2>
-            <p class="section-description">My personal takes on films that made an impact</p>
-            
-            <div class="blog-grid">
-                <!-- Blog Post 1 -->
-                <article class="blog-card">
-                    <div class="blog-header">
-                        <div class="blog-category">Movie Review</div>
-                        <div class="blog-date">December 7, 2025</div>
-                    </div>
-                    <h3 class="blog-title">Man from Earth, the hidden gem everybody is sleeping on</h3>
-                    <p class="blog-excerpt">
-                        Shot entirely within a single room, the film captures the journey of a seemingly immortal neanderthal.
-                    </p>
-                    <a href="blogs/manfromearth_20251207.html" class="read-more">Read More →</a>
-                    <div class="blog-tags">
-                        <span class="tag">Sci Fi</span>
-                        <span class="tag">Drama</span>
-                    </div>
-                </article>
-            </div>
-        </section>
-
 
         <!-- All-Time Favorites -->
         <div class="top-picks">
@@ -1172,6 +1209,31 @@
             </div>
         </div>
 
+        <!-- Blog Section -->
+        <section id="blog">
+            <h2><span class="section-emoji">✍️</span> Movie Thoughts & Reviews</h2>
+            <p class="section-description">My personal takes on films that made an impact</p>
+            
+            <div class="blog-grid">
+                <!-- Blog Post 1 -->
+                <article class="blog-card">
+                    <div class="blog-header">
+                        <div class="blog-category">Movie Review</div>
+                        <div class="blog-date">December 7, 2025</div>
+                    </div>
+                    <h3 class="blog-title">Man from Earth, the hidden gem everybody is sleeping on</h3>
+                    <p class="blog-excerpt">
+                        Shot entirely within a single room, the film captures the journey of a seemingly immortal neanderthal.
+                    </p>
+                    <a href="blogs/manfromearth_20251207.html" class="read-more">Read More →</a>
+                    <div class="blog-tags">
+                        <span class="tag">Sci Fi</span>
+                        <span class="tag">Drama</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
         
     </div>
 
@@ -1203,6 +1265,62 @@
             localStorage.setItem('theme', theme);
         });
     </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scroll for navigation links
+            const navLinks = document.querySelectorAll('a[href^="#"]');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    if (targetSection) {
+                        // Smooth scroll to section
+                        targetSection.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    } else {
+                        console.warn('Section not found:', targetId);
+                    }
+                });
+            });
+            
+            // Optional: Highlight active section in navigation
+            const sections = document.querySelectorAll('section[id]');
+            const observerOptions = {
+                threshold: 0.3,
+                rootMargin: '-100px 0px 0px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Remove active class from all links
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                        });
+                        
+                        // Add active class to current section's link
+                        const activeLink = document.querySelector(`a[href="#${entry.target.id}"]`);
+                        if (activeLink) {
+                            activeLink.classList.add('active');
+                        }
+                    }
+                });
+            }, observerOptions);
+            
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+
+
 
 
 </body>
