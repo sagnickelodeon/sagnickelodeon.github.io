@@ -537,6 +537,12 @@
         .watching-grid {
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         }
+
+        nav ul {
+            gap: 0.5rem;      /* Reduces space between items so more fit */
+            flex-wrap: wrap;  /* Allows items to drop to the next line */
+            padding: 0 1rem;  /* Adds side padding so text doesn't touch the screen edge */
+        }
     }
 
         /* Dark Mode Variables - Add to existing :root and dark-mode sections */
@@ -748,6 +754,12 @@
         @media (max-width: 768px) {
             .blog-grid {
                 grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                gap: 0.5rem;      /* Reduces space between items so more fit */
+                flex-wrap: wrap;  /* Allows items to drop to the next line */
+                padding: 0 1rem;  /* Adds side padding so text doesn't touch the screen edge */
             }
         }
 
