@@ -1577,12 +1577,15 @@
           });
           
           // Update active class
-          navLinks.forEach(link => {
+          // Update active class
+        navLinks.forEach(link => {
             link.classList.remove('active');
-            if (link.getAttribute('href') === `#${current}`) {
-              link.classList.add('active');
+            // Only add active class if it's not the logo
+            if (link.getAttribute('href') === `#${current}` && !link.closest('.nav-logo')) {
+                link.classList.add('active');
             }
-          });
+        });
+
         }
         
         window.addEventListener('scroll', highlightNavLink);
