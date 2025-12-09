@@ -181,12 +181,33 @@
         .mt-section { margin-top: 5rem; }
 
         /* --- Connected Experience Timeline --- */
-        .company-header {
+        /* .company-header {
             display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem;
             padding-bottom: 1rem; border-bottom: 1px solid var(--glass-border);
+        } */
+        .company-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between; /* <-- CHANGE: Pushes items to the ends */
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--glass-border);
         }
         .company-info h3 { font-size: 1.5rem; font-weight: 700; color: var(--text-primary); }
-        .company-duration { color: var(--text-secondary); font-size: 0.9rem; }
+        /* .company-duration { color: var(--text-secondary); font-size: 0.9rem; } */
+        .company-duration {
+            /* Set a specific font size for the duration */
+            font-size: 1.1rem; /* <-- CHANGE: Increased size */
+            color: var(--text-secondary); 
+            /* Remove unnecessary span element and its display style to allow it to move right */
+            /* span is removed from the HTML, so this just targets the element */
+        }
+
+        .header-duration {
+            color: var(--accent-primary);
+            font-weight: 600;
+            font-size: 1.1rem; /* Adjust size to match company-duration if needed */
+        }
 
         .timeline { position: relative; padding-left: 2rem; }
         .timeline::before {
@@ -380,8 +401,8 @@
                 <div class="company-info">
                     <h3>Michelin</h3>
                     <span class="company-duration">Pune, India</span>
-                    <span class="role-date">June 2023 - Present</span>
                 </div>
+                <span class="header-duration">June 2023 - Present</span>
             </div>
 
             <div class="timeline">
