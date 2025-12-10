@@ -3,15 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio of Sagnik Dasgupta, a Data Engineer specializing in distributed systems, AI engineering, and cloud infrastructure.">
+    <meta name="description" content="Sagnik Dasgupta is a Data Engineer & AI Infrastructure Specialist based in Pune, specializing in scalable Delta Lakehouse architectures, distributed PySpark optimization, and production-grade Agentic RAG systems on Azure. Graduate of CMI.">
+    <meta name="keywords" content="Data Engineer, AI Infrastructure, Sagnik Dasgupta, Databricks, PySpark, Delta Lake, RAG, Azure, Agentic AI, Pune">
+    <meta name="author" content="Sagnik Dasgupta">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="theme-color" content="#0f172a">
+
+    <link rel="preload" href="images/face_compressed.webp" as="image" fetchpriority="high">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-
+    
     <noscript>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     </noscript>
     <title>Sagnik Dasgupta | Data Engineer</title>
+    <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "Person",
+            "name": "Sagnik Dasgupta", 
+            "jobTitle": "Data Engineer",
+            "worksFor": {
+                "@type": "Organization",
+                "name": "Michelin"
+            },
+            "alumniOf": {
+                "@type": "CollegeOrUniversity",
+                "name": "Chennai Mathematical Institute"
+            },
+            "url": "https://sagnickelodeon.github.io",
+            "sameAs": [
+                "https://linkedin.com/in/sagnickelodeon",
+                "https://github.com/sagnickelodeon"
+            ],
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Pune", 
+                "addressRegion": "Maharashtra",
+                "addressCountry": "India"
+            },
+            "sameAs": [
+                "https://linkedin.com/in/sagnickelodeon",
+                "https://github.com/sagnickelodeon"
+            ],
+            "image": "https://sagnickelodeon.github.io/images/face_compressed.webp",
+            "knowsAbout": [
+                "Data Engineering",
+                "Apache Spark",
+                "Databricks",
+                "Delta Lake",
+                "Azure Kubernetes Service",
+                "Agentic AI",
+                "RAG Systems",
+                "Distributed Computing"
+            ]
+        }
+    </script>
+    <!-- Other social tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sagnickelodeon.github.io/">
+    <meta property="og:title" content="Sagnik Dasgupta | Data Engineer & AI Specialist">
+    <meta property="og:description" content="Specializing in scalable Delta Lakehouse architectures, PySpark optimization, and Agentic RAG systems on Azure.">
+    <meta property="og:image" content="https://sagnickelodeon.github.io/images/social.webp"> 
+    <meta property="og:locale" content="en_IN">
+    <!-- Twitter social tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sagnickelodeon.github.io/">
+    <meta property="twitter:title" content="Sagnik Dasgupta | Data Engineer">
+    <meta property="twitter:description" content="View my data engineering projects and technical expertise.">
+    <meta property="twitter:image" content="https://sagnickelodeon.github.io/images/social.webp">
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://sagnickelodeon.github.io/">
     <style>
         :root {
             /* Light Mode Theme */
@@ -380,20 +444,25 @@
             
             <div class="glass-panel profile-card">
                 <div class="profile-img-container">
-                    <img src="images/face_compressed.webp" alt="Sagnik" class="profile-img">
+                    <img src="images/face_compressed.webp" 
+                         alt="Sagnik Dasgupta Profile" 
+                         class="profile-img" 
+                         width="160" 
+                         height="160" 
+                         fetchpriority="high">
                 </div>
                 <h1 class="profile-name">Sagnik Dasgupta</h1>
-                <div class="profile-role">Data Engineer</div>
+                <p class="profile-role" role="doc-subtitle">Data Engineer</p>
                 
                 <div class="location-tag">
                     <span>📍</span> Pune, India
                 </div>
 
-                <div class="social-row">
-                    <button id="header-email-btn" class="social-btn">Email</button>
-                    <a href="https://linkedin.com/in/sagnickelodeon" target="_blank" class="social-btn">LinkedIn</a>
-                    <a href="https://github.com/sagnickelodeon" target="_blank" class="social-btn">GitHub</a>
-                </div>
+                <nav class="social-row" aria-label="Social Links">
+                    <button id="header-email-btn" class="social-btn" aria-label="Copy Email Address">Email</button>
+                    <a href="https://linkedin.com/in/sagnickelodeon" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn Profile">LinkedIn</a>
+                    <a href="https://github.com/sagnickelodeon" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="GitHub Profile">GitHub</a>
+                </nav>
             </div>
 
             <div class="glass-panel intro-card">
@@ -408,157 +477,165 @@
 
         <div class="section-spacer"></div>
 
-        <h2 class="section-title">Technical Arsenal</h2>
-        <div class="glass-panel stats-card">
-            <div class="skills-grid">
+        <section id="skills">
+            <h2 class="section-title">Technical Arsenal</h2>
+            <div class="glass-panel stats-card">
+                <div class="skills-grid">
+                    
+                    <div class="skill-group">
+                        <span class="skill-label">Distributed Systems</span>
+                        <div class="pill-container">
+                            <span class="pill">Databricks</span>
+                            <span class="pill">Apache Spark</span>
+                            <span class="pill">Delta Lake</span>
+                            <span class="pill">Azure Data Factory</span>
+                            <span class="pill">Playwright</span>
+                        </div>
+                    </div>
+    
+                    <div class="skill-group">
+                        <span class="skill-label">AI Engineering</span>
+                        <div class="pill-container">
+                            <span class="pill">LangChain</span>
+                            <span class="pill">LlamaIndex</span>
+                            <span class="pill">Vector DBs</span>
+                            <span class="pill">Semantic Routing</span>
+                            <span class="pill">Agentic Workflows</span>
+                        </div>
+                    </div>
+    
+                    <div class="skill-group">
+                        <span class="skill-label">Cloud & Infrastructure</span>
+                        <div class="pill-container">
+                            <span class="pill">Azure Kubernetes (AKS)</span>
+                            <span class="pill">Docker</span>
+                            <span class="pill">CI/CD</span>
+                            <span class="pill">Azure ML</span>
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+        </section>
+
+        <div class="section-spacer"></div>
+
+        <section id="experience">
+            <h2 class="section-title">Career Progression</h2>
+            <div class="glass-panel">
+                <div class="company-header">
+                    <div class="company-info">
+                        <h3>Michelin</h3>
+                        <span class="company-duration">Pune, India</span>
+                    </div>
+                    <span class="header-duration">June 2023 - Present</span>
+                </div>
+    
+                <div class="timeline">
+                    <div class="role-node">
+                        <div class="role-header">
+                            <div class="role-title">Deputy Manager - Data Engineer</div>
+                        </div>
+                        <div class="role-desc">
+                            <ul>
+                                <li><span class="highlight">Latency Reduction:</span> Re-architected core ETL frameworks achieving a <b>50% reduction in processing latency</b> for mission-critical datasets.</li>
+                                <li><span class="highlight">Lakehouse Architecture:</span> Migrated legacy CSV silos to a <b>Bronze-Silver-Gold Delta Lake with a RAID 1 architecture</b>, ensuring ACID compliance.</li>
+                                <li><span class="highlight">Agentic AI:</span> Developed autonomous persona-switching algorithms using vector embeddings to adapt system tone dynamically.</li>
+                                <li><span class="highlight">Observability:</span> Built proactive health monitoring systems using Microsoft Graph API to reduce MTTR.</li>
+                            </ul>
+                        </div>
+                    </div>
+    
+                    <div class="role-node">
+                        <div class="role-header">
+                            <div class="role-title">Specialist - Data Engineer</div>
+                        </div>
+                        <div class="role-desc">
+                            <ul>
+                                <li><span class="highlight">GenAI Deployment:</span> Architected a conversational agent serving <b>1,400+ internal users</b> on Azure Kubernetes Service (AKS).</li>
+                                <li><span class="highlight">Security Guardrails:</span> Engineered input sanitization layers using lightweight LLMs to prevent adversarial attacks.</li>
+                                <li><span class="highlight">Scalability:</span> Implemented Horizontal Pod Autoscaling (HPA) to ensure resilience during peak usage loads.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-spacer"></div>
+
+        <section id="education">
+            <h2 class="section-title">Education</h2>
+            <div class="education-grid">
+                <div class="glass-panel edu-card">
+                    <div class="edu-year">2021 - 2023</div>
+                    <div class="edu-degree">M.Sc. Computer Science</div>
+                    <div class="edu-school">Chennai Mathematical Institute</div>
+                    <div class="edu-focus">Focus: Distributed Computing, Big Data, Information Retrieval</div>
+                </div>
+    
+                <div class="glass-panel edu-card">
+                    <div class="edu-year">2018 - 2021</div>
+                    <div class="edu-degree">B.Sc. Computer Science</div>
+                    <div class="edu-school">University of Calcutta</div>
+                    <div class="edu-focus">Focus: Data Science, Software Engineering</div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-spacer"></div>
+
+        <section id="projects">
+            <h2 class="section-title">Featured Systems</h2>
+            <div class="projects-grid">
                 
-                <div class="skill-group">
-                    <span class="skill-label">Distributed Systems</span>
-                    <div class="pill-container">
-                        <span class="pill">Databricks</span>
-                        <span class="pill">Apache Spark</span>
-                        <span class="pill">Delta Lake</span>
-                        <span class="pill">Azure Data Factory</span>
-                        <span class="pill">Playwright</span>
+                <article class="glass-panel project-card">
+                    <div class="project-img-wrapper">
+                        <img src="https://hips.hearstapps.com/hmg-prod/images/race-winner-max-verstappen-of-the-netherlands-driving-the-news-photo-1701815407.jpg" loading="lazy" alt="Real-Time F1 Dashboard showing race statistics and Python visualization">
                     </div>
-                </div>
-
-                <div class="skill-group">
-                    <span class="skill-label">AI Engineering</span>
-                    <div class="pill-container">
-                        <span class="pill">LangChain</span>
-                        <span class="pill">LlamaIndex</span>
-                        <span class="pill">Vector DBs</span>
-                        <span class="pill">Semantic Routing</span>
-                        <span class="pill">Agentic Workflows</span>
+                    <div class="project-body">
+                        <div class="project-title">Real-Time Telemetry Pipeline</div>
+                        <p class="project-text">Interactive analytics platform visualizing Formula 1 race statistics and performance metrics in real-time.</p>
+                        <div class="tech-row">
+                            <span class="mini-tag">Python</span>
+                            <span class="mini-tag">Streamlit</span>
+                            <span class="mini-tag">Azure</span>
+                        </div>
                     </div>
-                </div>
-
-                <div class="skill-group">
-                    <span class="skill-label">Cloud & Infrastructure</span>
-                    <div class="pill-container">
-                        <span class="pill">Azure Kubernetes (AKS)</span>
-                        <span class="pill">Docker</span>
-                        <span class="pill">CI/CD</span>
-                        <span class="pill">Azure ML</span>
+                </article>
+    
+                <article class="glass-panel project-card">
+                    <div class="project-img-wrapper">
+                        <img src="https://miro.medium.com/0*Z5SfiSs8T5JqDtMR.jpg" loading="lazy" alt="Distributed Leaderboard System architecture for Duolingo user rankings">
                     </div>
-                </div>
-
+                    <div class="project-body">
+                        <div class="project-title">Distributed Leaderboard System</div>
+                        <p class="project-text">Scalable data pipeline to process global rankings for Duolingo users, handling high-concurrency ingestion.</p>
+                        <div class="tech-row">
+                            <span class="mini-tag">Selenium</span>
+                            <span class="mini-tag">Distributed Systems</span>
+                            <span class="mini-tag">BS4</span>
+                        </div>
+                    </div>
+                </article>
+    
+                <article class="glass-panel project-card">
+                    <div class="project-img-wrapper">
+                        <img src="https://miro.medium.com/1*gnCqzZn7hjz_L3PuV0huMg.png" loading="lazy" alt="Adaptive Search Ranking algorithm diagram and performance metrics">
+                    </div>
+                    <div class="project-body">
+                        <div class="project-title">Adaptive Search Ranking</div>
+                        <p class="project-text">Dynamic search system adapting result rankings based on real-time user behavior signals.</p>
+                        <div class="tech-row">
+                            <span class="mini-tag">Java</span>
+                            <span class="mini-tag">IR Algorithms</span>
+                            <span class="mini-tag">Math</span>
+                        </div>
+                    </div>
+                </article>
+    
             </div>
-        </div>
-
-        <div class="section-spacer"></div>
-
-        <h2 class="section-title">Career Progression</h2>
-        <div class="glass-panel">
-            <div class="company-header">
-                <div class="company-info">
-                    <h3>Michelin</h3>
-                    <span class="company-duration">Pune, India</span>
-                </div>
-                <span class="header-duration">June 2023 - Present</span>
-            </div>
-
-            <div class="timeline">
-                <div class="role-node">
-                    <div class="role-header">
-                        <div class="role-title">Deputy Manager - Data Engineer</div>
-                    </div>
-                    <div class="role-desc">
-                        <ul>
-                            <li><span class="highlight">Latency Reduction:</span> Re-architected core ETL frameworks achieving a <b>50% reduction in processing latency</b> for mission-critical datasets.</li>
-                            <li><span class="highlight">Lakehouse Architecture:</span> Migrated legacy CSV silos to a <b>Bronze-Silver-Gold Delta Lake with a RAID 1 architecture</b>, ensuring ACID compliance.</li>
-                            <li><span class="highlight">Agentic AI:</span> Developed autonomous persona-switching algorithms using vector embeddings to adapt system tone dynamically.</li>
-                            <li><span class="highlight">Observability:</span> Built proactive health monitoring systems using Microsoft Graph API to reduce MTTR.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="role-node">
-                    <div class="role-header">
-                        <div class="role-title">Specialist - Data Engineer</div>
-                    </div>
-                    <div class="role-desc">
-                        <ul>
-                            <li><span class="highlight">GenAI Deployment:</span> Architected a conversational agent serving <b>1,400+ internal users</b> on Azure Kubernetes Service (AKS).</li>
-                            <li><span class="highlight">Security Guardrails:</span> Engineered input sanitization layers using lightweight LLMs to prevent adversarial attacks.</li>
-                            <li><span class="highlight">Scalability:</span> Implemented Horizontal Pod Autoscaling (HPA) to ensure resilience during peak usage loads.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="section-spacer"></div>
-
-        <h2 class="section-title">Education</h2>
-        <div class="education-grid">
-            <div class="glass-panel edu-card">
-                <div class="edu-year">2021 - 2023</div>
-                <div class="edu-degree">M.Sc. Computer Science</div>
-                <div class="edu-school">Chennai Mathematical Institute</div>
-                <div class="edu-focus">Focus: Distributed Computing, Big Data, Information Retrieval</div>
-            </div>
-
-            <div class="glass-panel edu-card">
-                <div class="edu-year">2018 - 2021</div>
-                <div class="edu-degree">B.Sc. Computer Science</div>
-                <div class="edu-school">University of Calcutta</div>
-                <div class="edu-focus">Focus: Data Science, Software Engineering</div>
-            </div>
-        </div>
-
-        <div class="section-spacer"></div>
-
-        <h2 class="section-title">Featured Systems</h2>
-        <div class="projects-grid">
-            
-            <div class="glass-panel project-card">
-                <div class="project-img-wrapper">
-                    <img src="https://hips.hearstapps.com/hmg-prod/images/race-winner-max-verstappen-of-the-netherlands-driving-the-news-photo-1701815407.jpg" alt="F1">
-                </div>
-                <div class="project-body">
-                    <div class="project-title">Real-Time Telemetry Pipeline</div>
-                    <p class="project-text">Interactive analytics platform visualizing Formula 1 race statistics and performance metrics in real-time.</p>
-                    <div class="tech-row">
-                        <span class="mini-tag">Python</span>
-                        <span class="mini-tag">Streamlit</span>
-                        <span class="mini-tag">Azure</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="glass-panel project-card">
-                <div class="project-img-wrapper">
-                    <img src="https://miro.medium.com/0*Z5SfiSs8T5JqDtMR.jpg" alt="Duolingo">
-                </div>
-                <div class="project-body">
-                    <div class="project-title">Distributed Leaderboard System</div>
-                    <p class="project-text">Scalable data pipeline to process global rankings for Duolingo users, handling high-concurrency ingestion.</p>
-                    <div class="tech-row">
-                        <span class="mini-tag">Selenium</span>
-                        <span class="mini-tag">Distributed Systems</span>
-                        <span class="mini-tag">BS4</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="glass-panel project-card">
-                <div class="project-img-wrapper">
-                    <img src="https://miro.medium.com/1*gnCqzZn7hjz_L3PuV0huMg.png" alt="Search">
-                </div>
-                <div class="project-body">
-                    <div class="project-title">Adaptive Search Ranking</div>
-                    <p class="project-text">Dynamic search system adapting result rankings based on real-time user behavior signals.</p>
-                    <div class="tech-row">
-                        <span class="mini-tag">Java</span>
-                        <span class="mini-tag">IR Algorithms</span>
-                        <span class="mini-tag">Math</span>
-                    </div>
-                </div>
-            </div>
-
-        </div>
+        </section>
 
     </main>
 
@@ -568,14 +645,14 @@
             <p class="closing-text">
                 Always eager to tackle complex architectural puzzles and high-performance processing challenges. If you value efficiency and clean system design, let's exchange ideas.
             </p>
-            <button id="footer-email-btn" class="cta-btn-copy">
+            <button id="footer-email-btn" class="cta-btn-copy" aria-label="Copy Email Address">
                 ✉︎ Copy Email
             </button>
             <p class="copyright">© 2025 Sagnik Dasgupta. All rights reserved.</p>
         </div>
     </footer>
 
-    <button id="theme-toggle" class="theme-toggle">
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">
         🌓
     </button>
 
