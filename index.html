@@ -4,15 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Sagnik Dasgupta is a Data Engineer & AI Infrastructure Specialist based in Pune, specializing in scalable Delta Lakehouse architectures, distributed PySpark optimization, and production-grade Agentic RAG systems on Azure. Graduate of CMI.">
-    <meta name="keywords" content="Data Engineer, AI Infrastructure Specialist, Big Data Engineer, Sagnik Dasgupta, Databricks, PySpark, Delta Lake, Azure Data Factory, ADF, RAG, Retrieval Augmented Generation, GenAI, LangGraph, LangChain, FAISS, Vector Databases, OpenAI, DeepSeek, Azure Kubernetes Service, AKS, Docker, SQL, Snowflake, Dremio, Python, Streamlit, Playwright, BeautifulSoup, ETL, ELT, Data Architecture, Data Modeling, Distributed Computing, ACID Compliance, Chennai Mathematical Institute, CMI, University of Calcutta, Pune, Kolkata, India, Michelin, Real-time Systems, Asynchronous Programming, Agentic AI, Autonomous Agents, LLM Ops, Data Lakehouse, Semantic Search, F1 Telemetry Analysis, Web Scraping">
+    <meta name="keywords" content="Data Engineer, AI Infrastructure, Sagnik Dasgupta, Databricks, PySpark, Delta Lake, RAG, Azure, Agentic AI, Pune">
     <meta name="author" content="Sagnik Dasgupta">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <meta name="theme-color" content="#0f172a">
     
+    <meta name="keywords" content="Data Engineer, AI Infrastructure, Sagnik Dasgupta, Databricks, PySpark, Delta Lake, RAG, Azure, Agentic AI, Pune">
+
+    <link rel="preload" href="images/face_compressed.webp" as="image" fetchpriority="high">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-
+    
     <noscript>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     </noscript>
@@ -23,6 +27,14 @@
             "@type": "Person",
             "name": "Sagnik Dasgupta", 
             "jobTitle": "Data Engineer",
+            "worksFor": {
+                "@type": "Organization",
+                "name": "Michelin"
+            },
+            "alumniOf": {
+                "@type": "CollegeOrUniversity",
+                "name": "Chennai Mathematical Institute"
+            },
             "url": "https://sagnickelodeon.github.io",
             "sameAs": [
                 "https://linkedin.com/in/sagnickelodeon",
@@ -30,8 +42,9 @@
                 "https://sagnickelodeon.github.io"
             ],
             "address": {
-                "@type": "Pune",
-                "addressLocality": "Maharashtra", 
+                "@type": "PostalAddress",
+                "addressLocality": "Pune", 
+                "addressRegion": "Maharashtra",
                 "addressCountry": "India"
             },
             "image": "https://sagnickelodeon.github.io/images/face_compressed.webp"
@@ -419,7 +432,12 @@
             
             <div class="glass-panel profile-card">
                 <div class="profile-img-container">
-                    <img src="images/face_compressed.webp" alt="Sagnik" class="profile-img">
+                    <img src="images/face_compressed.webp" 
+                         alt="Sagnik Dasgupta Profile" 
+                         class="profile-img" 
+                         width="160" 
+                         height="160" 
+                         fetchpriority="high">
                 </div>
                 <h1 class="profile-name">Sagnik Dasgupta</h1>
                 <div class="profile-role">Data Engineer</div>
@@ -428,11 +446,11 @@
                     <span>📍</span> Pune, India
                 </div>
 
-                <div class="social-row">
-                    <button id="header-email-btn" class="social-btn">Email</button>
-                    <a href="https://linkedin.com/in/sagnickelodeon" target="_blank" class="social-btn">LinkedIn</a>
-                    <a href="https://github.com/sagnickelodeon" target="_blank" class="social-btn">GitHub</a>
-                </div>
+                <nav class="social-row" aria-label="Social Links">
+                    <button id="header-email-btn" class="social-btn" aria-label="Copy Email Address">Email</button>
+                    <a href="https://linkedin.com/in/sagnickelodeon" target="_blank" class="social-btn" aria-label="LinkedIn Profile">LinkedIn</a>
+                    <a href="https://github.com/sagnickelodeon" target="_blank" class="social-btn" aria-label="GitHub Profile">GitHub</a>
+                </nav>
             </div>
 
             <div class="glass-panel intro-card">
@@ -447,7 +465,9 @@
 
         <div class="section-spacer"></div>
 
-        <h2 class="section-title">Technical Arsenal</h2>
+        <section id="skills">
+            <h2 class="section-title">Technical Arsenal</h2>
+        </section>
         <div class="glass-panel stats-card">
             <div class="skills-grid">
                 
@@ -488,7 +508,9 @@
 
         <div class="section-spacer"></div>
 
-        <h2 class="section-title">Career Progression</h2>
+        <section id="experience">
+            <h2 class="section-title">Career Progression</h2>
+        </section>
         <div class="glass-panel">
             <div class="company-header">
                 <div class="company-info">
@@ -530,7 +552,9 @@
 
         <div class="section-spacer"></div>
 
-        <h2 class="section-title">Education</h2>
+        <section id="education">
+            <h2 class="section-title">Education</h2>
+        </section>
         <div class="education-grid">
             <div class="glass-panel edu-card">
                 <div class="edu-year">2021 - 2023</div>
@@ -549,10 +573,12 @@
 
         <div class="section-spacer"></div>
 
-        <h2 class="section-title">Featured Systems</h2>
+        <section id="projects">
+            <h2 class="section-title">Featured Systems</h2>
+        </section>
         <div class="projects-grid">
             
-            <div class="glass-panel project-card">
+            <article class="glass-panel project-card">
                 <div class="project-img-wrapper">
                     <img src="https://hips.hearstapps.com/hmg-prod/images/race-winner-max-verstappen-of-the-netherlands-driving-the-news-photo-1701815407.jpg" loading="lazy" alt="F1">
                 </div>
@@ -565,9 +591,9 @@
                         <span class="mini-tag">Azure</span>
                     </div>
                 </div>
-            </div>
+            </article>
 
-            <div class="glass-panel project-card">
+            <article class="glass-panel project-card">
                 <div class="project-img-wrapper">
                     <img src="https://miro.medium.com/0*Z5SfiSs8T5JqDtMR.jpg" loading="lazy" alt="Duolingo">
                 </div>
@@ -580,9 +606,9 @@
                         <span class="mini-tag">BS4</span>
                     </div>
                 </div>
-            </div>
+            </article>
 
-            <div class="glass-panel project-card">
+            <article class="glass-panel project-card">
                 <div class="project-img-wrapper">
                     <img src="https://miro.medium.com/1*gnCqzZn7hjz_L3PuV0huMg.png" loading="lazy" alt="Search">
                 </div>
@@ -595,7 +621,7 @@
                         <span class="mini-tag">Math</span>
                     </div>
                 </div>
-            </div>
+            </article>
 
         </div>
 
@@ -614,7 +640,7 @@
         </div>
     </footer>
 
-    <button id="theme-toggle" class="theme-toggle">
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode" aria-label="Copy Email Address">
         🌓
     </button>
 
