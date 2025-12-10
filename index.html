@@ -13,7 +13,11 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
+    </noscript>
     
     <title>Sagnik Dasgupta | Data Engineer</title>
     <script type="application/ld+json">
@@ -41,6 +45,10 @@
                 "addressRegion": "Maharashtra",
                 "addressCountry": "India"
             },
+            "sameAs": [
+                "https://linkedin.com/in/sagnickelodeon",
+                "https://github.com/sagnickelodeon"
+            ],
             "image": "https://sagnickelodeon.github.io/images/face_compressed.webp",
             "knowsAbout": [
                 "Data Engineering",
@@ -54,18 +62,21 @@
             ]
         }
     </script>
-    
+
+    <!-- Social tags -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sagnickelodeon.github.io/">
     <meta property="og:title" content="Sagnik Dasgupta | Data Engineer & AI Specialist">
     <meta property="og:description" content="Specializing in scalable Delta Lakehouse architectures, PySpark optimization, and Agentic RAG systems on Azure.">
     <meta property="og:image" content="https://sagnickelodeon.github.io/images/social.webp"> 
     <meta property="og:locale" content="en_IN">
+    <!-- Twitter tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://sagnickelodeon.github.io/">
     <meta property="twitter:title" content="Sagnik Dasgupta | Data Engineer">
     <meta property="twitter:description" content="View my data engineering projects and technical expertise.">
     <meta property="twitter:image" content="https://sagnickelodeon.github.io/images/social.webp">
+    <!-- Canonical URL -->
     <link rel="canonical" href="https://sagnickelodeon.github.io/">
 
     <style>
@@ -372,7 +383,7 @@
             color: var(--text-secondary); font-size: 1rem; 
         }
         .role-desc li::before { 
-            content: '→'; 
+            content: '▹'; 
             position: absolute; left: 0; top: 0px;
             font-family: var(--font-mono); font-size: 1rem; 
             color: var(--accent-secondary); opacity: 0.8;
@@ -493,7 +504,7 @@
                          fetchpriority="high">
                 </div>
                 <h1 class="profile-name">Sagnik Dasgupta</h1>
-                <p class="profile-role">Data Engineer</p>
+                <p class="profile-role" role="doc-subtitle">Data Engineer</p>
                 
                 <div class="location-tag">
                     <span>📍</span> Pune, India
@@ -507,11 +518,11 @@
             </div>
 
             <div class="glass-panel intro-card">
-                <h2 class="intro-heading">Hello, I'm Sagnik.</h2>
+                <h2 class="intro-heading">Architecting Scalable Systems</h2>
                 <p class="profile-bio">
-                    Transforming data into production-grade AI. Focused on engineering rigor, scalability, and distributed systems. 
+                    Hi, I'm Sagnik, Data Engineer at Michelin. I specialize in high-performance distributed computing and building the critical infrastructure behind Agentic AI. 
                     <br><br>
-                    I build the pipelines that power intelligent decisions, moving beyond simple scripts to robust, fault-tolerant architectures.
+                    I design systems that scale—bridging the gap between massive data streams and reliability to create the backbone for enterprise intelligence.
                 </p>
             </div>
         </div>
